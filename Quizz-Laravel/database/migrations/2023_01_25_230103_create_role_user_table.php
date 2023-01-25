@@ -15,7 +15,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('role_user', function (Blueprint $table) {
-            //table pivot
+            //table pivot pour attribuer les roles aux user id
             $table->primary(['user_id', 'role_id']);
             $table->foreignIdFor(User::class);
             $table->foreignIdFor(Role::class);
