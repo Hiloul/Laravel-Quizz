@@ -27,18 +27,12 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth:sanctum', 'verified'])->name('dashboard');
 
-// //Partie Admin
-
-// Route::middleware('auth:sanctum')->group(function () {
-//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-// });
+//Middleware auth admin route/api
 
 //Route gestion des rôles
-Route::middleware(['auth', 'role:admin'])->group(function(){
+Route::middleware(['auth:sanctum', 'role:admin'])->group(function(){
     Route::get('/private', function () {
         return 'Bonjour admin';
 });
