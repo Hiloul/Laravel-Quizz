@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\QuizzController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -39,3 +40,7 @@ Route::middleware(['auth:sanctum', 'role:admin'])->group(function(){
 });
 
 require __DIR__.'/auth.php';
+
+
+Route::get('/quizz/create', [QuizzController::class, 'create'])->name('quizz.create')->where('id', '[0-9]+');
+Route::post('/quizz', [QuizzController::class, 'store'])->name('quizz.store');
