@@ -13,11 +13,6 @@ class Character extends Model
         'nom',
         'description',
         'specialite',
-        'magie',
-        'force',
-        'agilite',
-        'intelligence',
-        'pv'
         
     ];
 }

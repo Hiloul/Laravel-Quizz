@@ -22,11 +22,5 @@
     <h3>Nom du personnage: {{ $perso->nom }}</h3>
     <p>Description: {{ $perso->description }}</p>
     <p> Spécialité: {{ $perso->specialite }}</p>
-    <p>Caracteristiques</p>
-    <p>MAG: {{ $perso->magie }}</p>
-    <p>FOR: {{ $perso->force }}</p>
-    <p>AGI: {{ $perso->agilite }}</p>
-    <p>INT: {{ $perso->intelligence }}</p>
-    <p>PV: {{ $perso->pv }}</p>
     </div>
 @endsection

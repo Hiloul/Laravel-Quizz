@@ -30,10 +30,7 @@
     form{outline-style: none;}
 </style>
 
-<div id="userList"></div>
-
-<h1>Création d'un personnage</h1>
-
+<h1>Répondre au questionnaire</h1>
 
     <form action="{{ route('quizz.store') }}" method="POST">
         @csrf
@@ -54,24 +51,8 @@
         <option value="berserker">Berserker</option>
         <option value="archer">Archer</option>
         </select>
-        
-        <label for="magie">Magie :</label>
-        <input type="number" name="magie" readonly value="{{$magie}}" placeholder="MAG" id="magie">
-        <label for="force">Force :</label>
-        <input type="number" name="force" readonly value="{{$force}}" placeholder="FOR" id="force">
-        <label for="agilite">Agilité :</label>
-        <input type="number" name="agilite" readonly value="{{$agilite}}" placeholder="AGI" id="agilite">
-        <label for="agilite">Intelligence :</label>
-        <input type="number" name="intelligence" readonly value="{{$intelligence}}" placeholder="INT" id="intelligence">
-        <label for="pv">PV :</label>
-        <input v-model="generate" type="number" name="pv" readonly value="{{$pv}}" placeholder="pv" id="pv">
-        <button @click="genererInt">Générer</button>
         {{-- <button>Envoyer</button> --}}
         <input type="submit" value="Envoyer" id="button" />
     </form>
-   
     
-  
-
-<script defer src="{{asset('/js/scriptcard.js')}}"></script>
 @endsection
