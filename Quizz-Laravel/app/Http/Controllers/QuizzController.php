@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Character;
+use App\Models\Answer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -45,7 +45,7 @@ class QuizzController extends Controller
             'email' => 'required',
         ]);
         
-        $personnage = Character::create([
+        $personnage = Answer::create([
             'id' => $request->input('user'),
             'answer1' => $request->input('answer1'),
             'answer2' => $request->input('answer2'),
@@ -69,7 +69,7 @@ class QuizzController extends Controller
      */
     public function show($id)
     {
-        $perso = Character::findOrFail($id);
+        $perso = Answer::findOrFail($id);
         return view('quizz.show', [ 'perso' => $perso ]);
     }
 

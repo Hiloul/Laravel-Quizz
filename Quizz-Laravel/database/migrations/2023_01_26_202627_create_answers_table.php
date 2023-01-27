@@ -25,7 +25,7 @@ return new class extends Migration
             $table->timestamps();
         });
 //creer la bonne structure pour la table answers anvant la migration
-        Schema::table('projects', function(Blueprint $table) {
+        Schema::table('answers', function(Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users');
            
         });
