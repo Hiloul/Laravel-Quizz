@@ -37,19 +37,25 @@ class QuizzController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nom' => 'required',
-            'description' => 'required',
-            'specialite' => 'required',
+            'answer1' => 'required',
+            'answer2' => 'required',
+            'answer3' => 'required',
+            'answer4' => 'required',
+            'answer5' => 'required',
+            'email' => 'required',
         ]);
         
         $personnage = Character::create([
             'id' => $request->input('user'),
-            'nom' => $request->input('nom'),
-            'description' => $request->input('description'),
-            'specialite' => $request->input('specialite'),
+            'answer1' => $request->input('answer1'),
+            'answer2' => $request->input('answer2'),
+            'answer3' => $request->input('answer3'),
+            'answer4' => $request->input('answer4'),
+            'answer5' => $request->input('answer5'),
+            'email' => $request->input('email'),
             'user_id'=>Auth::user()->id,
         ]);
-        $id = Auth::id();
+        // $id = Auth::id();
         $personnage->save();
       
         return view('welcome')->with('message', 'Créer avec succès');
