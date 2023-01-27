@@ -32,7 +32,7 @@ class AdminController extends Controller
         $users = DB::table('users')->join('answers', 'users.id', '=', 'answers.user_id')->get();
         
 
-        return response()->json(['message' => 'User Answer check', 'useranswer' => $users], 200);
+        return response()->json(['message' => 'User Answer', 'useranswer' => $users], 200);
     }
     //Récuperation des réponses par email
     public function getAnswersByEmail()
@@ -41,7 +41,7 @@ class AdminController extends Controller
         $users = DB::table('users')->join('answers', 'users.id', '=', 'answers.email_id')->get();
         
 
-        return response()->json(['message' => 'User Answer check', 'useranswer' => $users], 200);
+        return response()->json(['message' => 'User Answers', 'useranswer' => $users], 200);
     }
     
     //Récuperation des réponses by User_Id
@@ -50,7 +50,7 @@ class AdminController extends Controller
 
         $answer=Answer::findOrFail($id);
 
-        return response()->json(['message'=>'User Answer check','adminanswer'=>$answer],200);
+        return response()->json(['message'=>'User Answers','adminanswer'=>$answer],200);
 
     }
     
