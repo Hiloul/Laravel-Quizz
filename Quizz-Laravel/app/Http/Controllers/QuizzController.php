@@ -69,8 +69,8 @@ class QuizzController extends Controller
      */
     public function show($id)
     {
-        $perso = Answer::findOrFail($id);
-        return view('quizz.show', [ 'perso' => $perso ]);
+        $answer = Answer::findOrFail($id);
+        return view('quizz.show', [ 'answer' => $answer ]);
     }
 
     /**
