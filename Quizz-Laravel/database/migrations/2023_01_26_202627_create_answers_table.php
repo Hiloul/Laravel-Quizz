@@ -16,10 +16,10 @@ return new class extends Migration
         Schema::create('answers', function (Blueprint $table) {
             $table->id();
             $table->string('answer1');
-            $table->integer('answer2');
-            $table->integer('answer3');
+            $table->string('answer2');
+            $table->string('answer3');
             $table->integer('answer4');
-            $table->integer('answer5');
+            $table->longText('answer5');
             $table->string('email'); //input normal ou cle externe email users table?
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
