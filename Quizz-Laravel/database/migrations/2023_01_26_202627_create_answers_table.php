@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('answer1');
             $table->string('answer2');
             $table->string('answer3');
-            $table->integer('answer4');
+            $table->string('answer4');
             $table->longText('answer5');
             $table->string('email'); //input normal ou cle externe email users table?
             $table->unsignedBigInteger('user_id');
