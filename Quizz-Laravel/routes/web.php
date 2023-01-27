@@ -17,6 +17,7 @@ use Inertia\Inertia;
 |
 */
 
+//Route login/s'inscrire
 Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
@@ -26,6 +27,7 @@ Route::get('/', function () {
     ]);
 });
 
+//Dashboard
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth:sanctum', 'verified'])->name('dashboard');
