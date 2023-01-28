@@ -19,6 +19,10 @@ class AdminController extends Controller
 
         return view('admin.results.index', compact('results'));
     }
+    public function create(Request $request)
+    {
+        return view('admin.create');
+    }
 
     public function getFullUsers()
     {
