@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 use App\Models\Answer;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
-use DateTime;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Auth\User as AuthUser;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -12,6 +13,12 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 class AdminController extends Controller
 {
+    public function index(): View
+    {
+        $results = Answer::all();
+
+        return view('admin.results.index', compact('results'));
+    }
 
     public function getFullUsers()
     {
@@ -50,15 +57,15 @@ class AdminController extends Controller
 
     }
     
-    // public function getStats()
-    // {
-     
-    // $user_id = User::all();
-    //       return redirect()->action(
-    //         [DashboardController::class, 'getStats'], ['user_id' => $user_id]
-    //     );
-    // } 
+    public function destroy(Answer $result): RedirectResponse
+    {
+        $result->delete();
 
+        return back()->with([
+            'message' => 'Effacé avec succes !',
+            'alert-type' => 'danger'
+        ]);
+    }
 
 }
 //Routes faites verfier
