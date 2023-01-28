@@ -1,15 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Models\Cracking;
-//a faire
 use App\Models\Answer;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use DateTime;
 use Illuminate\Foundation\Auth\User as AuthUser;
-use Illuminate\Support\Facades\Date;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -65,8 +61,4 @@ class AdminController extends Controller
 
 
 }
-
-
-//creer la table answers le model Answer 
-//rajouter les filtres de recherches by email by id ou by all ?
-
+//Routes faites verfier

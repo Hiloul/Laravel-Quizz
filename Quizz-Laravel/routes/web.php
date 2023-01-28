@@ -40,10 +40,14 @@ Route::middleware('auth:sanctum')->group(function () {
 });
 
 //Middleware auth admin route/api
-
 //Route gestion des rôles/ auth
 Route::middleware(['auth:sanctum', 'role:admin'])->group(function(){
     Route::get('/private', function () {
+        Route::get('/admin', [AdminController::class, 'getFullUsers']);
+    Route::get('/adminanswerfull', [AdminController::class, 'getFullUsersAnswers']);
+    Route::get('/adminansweremail', [AdminController::class, 'getAnswersByEmail']);
+    Route::get('/adminanswer/{id}', [AdminController::class, 'getAnswer']);
+    
         return 'Bonjour admin';
 });
 });
