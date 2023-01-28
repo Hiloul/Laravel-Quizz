@@ -23,8 +23,8 @@ class Answer extends Model
          return $this->belongsTo(User::class,'user_id','id');
  
      }
-     public function operations(){
-         return $this->hasMany(Operation::class,'answer_id','id');
+     public function answers(){
+         return $this->hasMany(Answer::class,'answer_id','id');
  
      }
  
