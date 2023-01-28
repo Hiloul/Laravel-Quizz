@@ -43,7 +43,11 @@ Route::middleware('auth:sanctum')->group(function () {
 //Route gestion des rôles/ auth
 Route::middleware(['auth:sanctum', 'role:admin'])->group(function(){
     Route::get('/private', function () {
-  
+        // Route::get('/private', [AdminController::class, 'getFullUsers']);
+        // Route::get('/answer', [AdminController::class, 'getFullUsersProject']);
+        Route::get('/admin/create', [TripController::class, 'create'])->name('admin.create');
+Route::post('/admin', [TripController::class, 'store'])->name('admin.store');
+
         return view('admin.index');
 });
 });
