@@ -43,14 +43,7 @@ Route::middleware('auth:sanctum')->group(function () {
 //Route gestion des rôles/ auth
 Route::middleware(['auth:sanctum', 'role:admin'])->group(function(){
     Route::get('/private', function () {
-        Route::get('/private', [AdminController::class, 'getFullUsers']);
-    Route::get('/private', [AdminController::class, 'getFullUsersAnswers']);
-    Route::get('/resultsbyemail', [AdminController::class, 'getAnswersByEmail']);
-    Route::get('/private/{id}', [AdminController::class, 'getAnswer']);
-    Route::resource('results', \App\Http\Controllers\Admin\QuizzController::class);
-    Route::delete('results_mass_destroy', [\App\Http\Controllers\Admin\QuizzController::class, 'massDestroy'])->name('results.mass_destroy');
-
-    
+  
         return view('admin.index');
 });
 });
