@@ -5,16 +5,10 @@
 <ul>
     @foreach($answers as $answer)
     <li>{{$answer->answer1}}</li>
+    <li>{{$answer->answer2}}</li>
+    <li>{{$answer->answer3}}</li>
+    <li>{{$answer->answer4}}</li>
+    <li>{{$answer->answer5}}</li>
     @endforeach
-</ul>
-@endsection
-@section('title', 'L\'article '.$answers)
-@section('principale')
-<div class="answerCard">
-    <h2>Vos réponses aux questionnaires: </h2>
-    <h3>Réponses: {{ $answers}}</h3>
     <h3> Votre email: {{ $answer->email}}</h3>
-    </div>
-@endsection
-<h1>coucou user</h1>
-
+</ul>
