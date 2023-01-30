@@ -16,11 +16,7 @@ use Inertia\Inertia;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//Page d'accueil
-Route::get('/', function () {
-    return view('welcome');
-});
-
+//Le welcome et dashboard sont des vue vuejs et le reste vue blade
 //Route login/s'inscrire
 Route::get('/', function () {
     return Inertia::render('Welcome', [
