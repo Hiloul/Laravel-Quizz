@@ -13,12 +13,12 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 class AdminController extends Controller
 {
-    public function index(): View
+    public function index()
     {
-        $results = Answer::all();
-
-        return view('admin.results.index', compact('results'));
+        $users=User::all();
+        return view('admin.private.index',['users'=>$users]);
     }
+
     public function create(Request $request)
     {
         return view('admin.create');

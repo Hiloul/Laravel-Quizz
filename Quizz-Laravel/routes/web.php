@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QuizzController;
 use Illuminate\Foundation\Application;
@@ -42,15 +43,16 @@ Route::middleware('auth:sanctum')->group(function () {
 //Middleware auth admin route/api
 //Route gestion des rôles/ auth
 Route::middleware(['auth:sanctum', 'role:admin'])->group(function(){
-    Route::get('/private', function () {
-        // Route::get('/private', [AdminController::class, 'getFullUsers']);
-        // Route::get('/answer', [AdminController::class, 'getFullUsersProject']);
-        Route::get('/admin/create', [TripController::class, 'create'])->name('admin.create');
-Route::post('/admin', [TripController::class, 'store'])->name('admin.store');
+     
+Route::get('/admin', [AdminController::class, 'index'])->name('admin.private.index');
+        
 
-        return view('admin.index');
 });
-});
+
+ // Route::get('/private', [AdminController::class, 'getFullUsers']);
+        // Route::get('/answer', [AdminController::class, 'getFullUsersProject']);
+//         Route::get('/admin/create', [AdminController::class, 'create'])->name('admin.create');
+// Route::post('/admin', [AdminController::class, 'store'])->name('admin.store');
 
 require __DIR__.'/auth.php';
 
@@ -59,3 +61,5 @@ Route::get('/quizz', [QuizzController::class, 'index'])->name('quizz.index');
 Route::get('/quizz/create', [QuizzController::class, 'create'])->name('quizz.create')->where('id', '[0-9]+');
 Route::post('/quizz', [QuizzController::class, 'store'])->name('quizz.store');
 Route::get('/quizz/{id}', [QuizzController::class, 'show'])->name('quizz.show');
+//Route::Update ?
+//Route::Delete ?
