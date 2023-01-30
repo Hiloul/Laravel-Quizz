@@ -6,7 +6,6 @@ use App\Http\Controllers\QuizzController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +16,10 @@ use Inertia\Inertia;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//Page d'accueil
+Route::get('/', function () {
+    return view('welcome');
+});
 
 //Route login/s'inscrire
 Route::get('/', function () {
@@ -40,23 +43,13 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-//Middleware auth admin route/api
-//Route gestion des rôles/ auth
-Route::middleware(['auth:sanctum', 'role:admin'])->group(function(){
-     
-Route::get('/admin', [AdminController::class, 'index'])->name('admin.private.index');
-Route::get('/getFullUsersAnswers', [AdminController::class, 'getFullUsersAnswers'])->name('admin.private.getFullUsersAnswers');
-Route::get('/getAnswersByEmail', [AdminController::class, 'getAnswersByEmail'])->name('admin.private.getAnswersByEmail');
-Route::get('/getAnswersByUser', [AdminController::class, 'getAnswersByUser'])->name('admin.private.getAnswersByUser');
-        
+//Route Private admin
+Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin.private.index');
+    Route::get('/getFullUsersAnswers', [AdminController::class, 'getFullUsersAnswers'])->name('admin.private.getFullUsersAnswers');
+    Route::get('/getAnswersByEmail', [AdminController::class, 'getAnswersByEmail'])->name('admin.private.getAnswersByEmail');
+    Route::get('/getAnswersByUser', [AdminController::class, 'getAnswersByUser'])->name('admin.private.getAnswersByUser');
 });
-
- // Route::get('/private', [AdminController::class, 'getFullUsers']);
-        // Route::get('/answer', [AdminController::class, 'getFullUsersProject']);
-//         Route::get('/admin/create', [AdminController::class, 'create'])->name('admin.create');
-// Route::post('/admin', [AdminController::class, 'store'])->name('admin.store');
-
-require __DIR__.'/auth.php';
 
 //Route Reponses au quizz
 Route::get('/quizz', [QuizzController::class, 'index'])->name('quizz.index');
@@ -65,3 +58,5 @@ Route::post('/quizz', [QuizzController::class, 'store'])->name('quizz.store');
 Route::get('/quizz/{id}', [QuizzController::class, 'show'])->name('quizz.show');
 //Route::Update ?
 //Route::Delete ?
+
+require __DIR__ . '/auth.php';
