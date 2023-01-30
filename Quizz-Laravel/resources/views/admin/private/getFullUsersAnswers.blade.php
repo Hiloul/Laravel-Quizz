@@ -1,7 +1,5 @@
 @extends('layouts.app')
 
-@section('title')
-
 <h1>Toutes les réponses au questionnaires de tous les utilisateurs</h1>
 <ul>
     @foreach($answers as $answer)
