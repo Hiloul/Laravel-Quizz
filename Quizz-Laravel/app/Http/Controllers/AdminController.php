@@ -24,31 +24,21 @@ class AdminController extends Controller
         return view('admin.create');
     }
 
-    public function getFullUsers()
-    {
-        $listusers = User::all();
-
-
-        return response()->json(['message' => 'User all liste.', 'user' => $listusers], 200);
-    }
-
     //Récuperation de toutes les réponses des utilisateurs
     public function getFullUsersAnswers()
     {
-
-        $users = DB::table('users')->join('answers', 'users.id', '=', 'answers.user_id')->get();
+        $answers=Answer::all();
         
 
-        return response()->json(['message' => 'User Answer', 'useranswer' => $users], 200);
+        return view('admin.private.getFullUsersAnswers',['answers'=>$answers]);
     }
     //Récuperation des réponses par email
     public function getAnswersByEmail()
     {
 
-        $users = DB::table('users')->join('answers', 'users.id', '=', 'answers.email_id')->get();
+        $answers = DB::table('answers')->select('email')->get();
         
-
-        return response()->json(['message' => 'User Answers', 'useranswer' => $users], 200);
+        return view('admin.private.getAnswersByEmail',['answers'=>$answers]);
     }
     
     //Récuperation des réponses by User_Id
