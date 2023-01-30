@@ -55,6 +55,7 @@ Route::post('/admin', [TripController::class, 'store'])->name('admin.store');
 require __DIR__.'/auth.php';
 
 //Route Reponses au quizz
+Route::get('/quizz', [QuizzController::class, 'index'])->name('quizz.index');
 Route::get('/quizz/create', [QuizzController::class, 'create'])->name('quizz.create')->where('id', '[0-9]+');
 Route::post('/quizz', [QuizzController::class, 'store'])->name('quizz.store');
 Route::get('/quizz/{id}', [QuizzController::class, 'show'])->name('quizz.show');

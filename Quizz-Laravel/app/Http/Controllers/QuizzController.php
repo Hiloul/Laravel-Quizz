@@ -15,7 +15,8 @@ class QuizzController extends Controller
      */
     public function index()
     {
-        return view('quizz.index');
+        $answers=Answer::all();
+        return view('quizz.index',['answers'=>$answers]);
     }
 
     /**
