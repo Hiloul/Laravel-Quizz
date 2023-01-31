@@ -64,13 +64,12 @@
         <label for="answer4">Question 4 ?</label>
         <select name="answer4" id="answer4">
 
-        <option>--Choisissez votre personnage--</option>
-        <option value="guerrier">Guerrier</option>
-        <option value="mage">Mage</option>
-        <option value="druide">Druide</option>
-        <option value="assassin">Assassin</option>
-        <option value="berserker">Berserker</option>
-        <option value="archer">Archer</option>
+        <option>--Choisissez votre réponse--</option>
+        <option value="un">Un</option>
+        <option value="deux">Deux</option>
+        <option value="trois">Trois</option>
+        <option value="quatre">Quatre</option>
+        <option value="cinq">Cinq</option>
         </select>
 
         <!-- Question 5 -->
