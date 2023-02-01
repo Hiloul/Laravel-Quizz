@@ -17,9 +17,12 @@ use Inertia\Inertia;
 |
 */
 //Le welcome et dashboard sont des vue vuejs et le reste vue blade
+Route::get('/', function () {
+    return view('welcome');
+});
 //Route login/s'inscrire
 Route::get('/', function () {
-    return Inertia::render('Welcome', [
+    return view('Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
         'laravelVersion' => Application::VERSION,
