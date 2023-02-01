@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title')
+@section('principale')
 <h1>Utilisateurs inscrits sur le site</h1>
 <ul>
     @foreach($users as $user)
@@ -7,5 +7,6 @@
     <li>{{$user->email}}</li>
     @endforeach
 </ul>
+@endsection
 
 

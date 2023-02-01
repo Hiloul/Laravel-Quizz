@@ -14,8 +14,6 @@
 }
 </style>
 
-@section('title', 'L\'article '.$answer->email)
-
 @section('principale')
 <div class="answerCard">
     <h2>Vos réponses à ce questionnaire: </h2>

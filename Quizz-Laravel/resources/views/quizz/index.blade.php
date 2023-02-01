@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title')
+@section('principale')
 <h1>Les réponses au questionnaire</h1>
 <ul>
     @foreach($answers as $answer)
@@ -12,3 +12,4 @@
     @endforeach
     <h3> Votre email: {{ $answer->email}}</h3>
 </ul>
+@endsection

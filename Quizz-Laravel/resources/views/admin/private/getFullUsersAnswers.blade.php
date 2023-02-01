@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+@section('principale')
 <h1>Toutes les réponses au questionnaires de tous les utilisateurs</h1>
 <ul>
     @foreach($answers as $answer)
@@ -11,5 +12,6 @@
     <li>{{$answer->email}}</li>
     @endforeach
 </ul>
+@endsection
 
 
