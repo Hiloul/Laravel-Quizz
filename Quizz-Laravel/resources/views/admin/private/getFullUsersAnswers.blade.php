@@ -1,12 +1,14 @@
 @extends('layouts.app')
 
 @section('principale')
+<h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
 <nav>
 <a href="/"><img src="../logoo.png" alt=""></a>
 <a href="/admin">Home'Admin</a>
 <a href="/getFullUsersAnswers">Toutes les réponses</a>
 <a href="/getAnswersByEmail">Réponses par email</a>
 </nav>
+</h2>
 <h2>Toutes les réponses au questionnaires de tous les utilisateurs</h2>
 <ul>
     @foreach($answers as $answer)
@@ -26,6 +28,9 @@
 @endsection
 
 <style>
+    nav{display: flex;
+justify-content: space-evenly;
+align-items: center;}
   img{width: 50px;
         height: 50px;
     margin-left: 10px;
