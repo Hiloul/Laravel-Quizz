@@ -17,6 +17,18 @@
     <div id="lastUl"></div>
     @endforeach
 </ul>
+<div class="card my-4">
+        <h5 class="card-header">Recherche</h5>
+        <form class="card-body" action="/search" method="GET" role="search">
+            {{ csrf_field() }}
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Rechercher..." name="q">
+                <span class="input-group-btn">
+            <button class="btn btn-secondary" type="submit">Go!</button>
+          </span>
+            </div>
+        </form>
+    </div>
 <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
     Laravel Quizz&copy; Hilel 2023
 </div>

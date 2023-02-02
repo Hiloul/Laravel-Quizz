@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 use App\Models\Answer;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
-
+use Illuminate\Cache\TagSet;
+use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
@@ -31,7 +32,15 @@ class AdminController extends Controller
         
         return view('admin.private.getAnswersByEmail',['answers'=>$answers]);
     }
-    
+      public function search(Request $request)
+    {
+        $key = trim($request->get('q'));
+
+
+        return view('admin.private.getAnswersByEmail', [
+            'key' => $key,
+        ]);
+    }
     
     public function getAnswer($id)
     {

@@ -48,6 +48,7 @@ Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
     Route::get('/getFullUsersAnswers', [AdminController::class, 'getFullUsersAnswers'])->name('admin.private.getFullUsersAnswers');
     Route::get('/getAnswersByEmail', [AdminController::class, 'getAnswersByEmail'])->name('admin.private.getAnswersByEmail');
     Route::get('/getAnswersByUser', [AdminController::class, 'getAnswersByUser'])->name('admin.private.getAnswersByUser');
+    Route::get('/search', [AdminController::class, 'search'])->name('admin.private.search');
 });
 
 //Route Reponses au quizz
