@@ -3,7 +3,7 @@
 <nav>
 <a href="/"><img src="../logoo.png" alt=""></a>
 <a href="/admin">Home'Admin</a>
-<a href="/getFullUsersAnswers">Réponses totales</a>
+<a href="/getFullUsersAnswers">Toutes les réponses</a>
 <a href="/getAnswersByEmail">Réponses par email</a>
 </nav>
 <h2>Utilisateurs inscrit(e)s sur le site</h2>

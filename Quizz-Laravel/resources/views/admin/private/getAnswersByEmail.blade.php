@@ -4,11 +4,10 @@
 <nav>
 <a href="/"><img src="../logoo.png" alt=""></a>
 <a href="/admin">Home'Admin</a>
-<a href="/index">Utilisateurs inscrits</a>
-<a href="/getFullUsersAnswers">Réponses totales</a>
+<a href="/getFullUsersAnswers">Toutes les réponses</a>
 <a href="/getAnswersByEmail">Réponses par email</a>
 </nav>
-<h2>Les réponses au questionnaires de Tous les utilisateurs</h2>
+<h2>Réponses des utilisateurs par email</h2>
 <ul>
     @foreach($answers as $answer)
     <li id="titleUl">Réponses par email</li>
