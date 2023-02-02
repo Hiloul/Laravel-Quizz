@@ -1,9 +1,6 @@
 @extends('layouts.app')
-
-@section('title', 'Création d\'un personnage')
-
-
 @section('principale')
+<a href="/"><img src="../logoo.png" alt=""></a>
 
     @if ($errors->any())
         <ul>
@@ -32,6 +29,10 @@
     @endif
 
 <style>
+    img{width: 50px;
+        height: 50px;
+    margin-left: 10px;
+margin-top: 10px;}
     h2{font-size: x-large;
     text-align: center;
     text-transform: uppercase;}

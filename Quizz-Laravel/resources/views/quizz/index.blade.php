@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('principale')
+<a href="/"><img src="../logoo.png" alt=""></a>
 <h2>Vos réponses au questionnaire</h2>
 <ul>
     @foreach($answers as $answer)
@@ -20,6 +21,10 @@
 @endsection
 
 <style>
+    img{width: 50px;
+        height: 50px;
+    margin-left: 10px;
+margin-top: 10px;}
 h2{text-transform: uppercase;
 text-align: center;}
 ul{display: flex;

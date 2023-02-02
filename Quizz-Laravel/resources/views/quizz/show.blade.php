@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 <style>
+    img{width: 50px;
+        height: 50px;
+    margin-left: 10px;
+margin-top: 10px;}
 h2{text-transform: uppercase;
 text-align: center;}
 .answerCard{
@@ -13,6 +17,7 @@ text-align: center;}
 </style>
 
 @section('principale')
+<a href="/"><img src="../logoo.png" alt=""></a>
 <h2>Vos réponses à ce questionnaire: </h2>
 <div class="answerCard">
     <h3>Réponse à la question 1: {{ $answer->answer1 }}</h3>
