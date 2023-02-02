@@ -139,10 +139,10 @@
     .dark\:text-gray-500 {
         --tw-text-opacity: 1;
         color: rgb(107 114 128 / var(--tw-text-opacity))}}
-        .carre{width: 100px;
-        height: 100px;
-        background-size: contain;
-        background-image: url("../public/logo.png");}
+        img{width: 50px;
+        height: 50px;}
+        /* background-size: contain;
+        background-image: url("../public/logo.png");} */
 </style>
 </head>
 
@@ -168,7 +168,7 @@
         <!-- Title -->
         <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
             <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
-            <div class="carre"></div> 
+            <img src="../logoo.png" alt="">
                 <h2 class="h-16 w-auto text-gray-700 sm:h-20">
                    Laravel Quizz</h2>
             </div>
