@@ -8,7 +8,6 @@
     <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- Styles -->
     <style>
-        /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
     html {line-height: 1.15;
         -webkit-text-size-adjust: 100% }
     body {margin: 0; font-family: 'Nunito', sans-serif;}
@@ -140,6 +139,10 @@
     .dark\:text-gray-500 {
         --tw-text-opacity: 1;
         color: rgb(107 114 128 / var(--tw-text-opacity))}}
+        .carre{width: 100px;
+        height: 100px;
+        background-size: contain;
+        background-image: url("../public/logo.png");}
 </style>
 </head>
 
@@ -165,7 +168,9 @@
         <!-- Title -->
         <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
             <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
-                <h2 class="h-16 w-auto text-gray-700 sm:h-20">Laravel Quizz</h2>
+            <div class="carre"></div> 
+                <h2 class="h-16 w-auto text-gray-700 sm:h-20">
+                   Laravel Quizz</h2>
             </div>
 
             <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
