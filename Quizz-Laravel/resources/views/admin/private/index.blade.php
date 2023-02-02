@@ -27,6 +27,9 @@
     nav{display: flex;
 justify-content: space-evenly;
 align-items:center ;}
+a:hover{
+    color: royalblue;
+}
    img{width: 50px;
         height: 50px;
     margin-left: 10px;

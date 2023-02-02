@@ -28,6 +28,9 @@
 @endsection
 
 <style>
+    a:hover{
+    color: royalblue;
+}
     nav{display: flex;
 justify-content: space-evenly;
 align-items: center;}

@@ -23,6 +23,9 @@
 @endsection
 
 <style>
+    a:hover{
+    color: royalblue;
+}
     img{width: 50px;
         height: 50px;
     margin-left: 10px;

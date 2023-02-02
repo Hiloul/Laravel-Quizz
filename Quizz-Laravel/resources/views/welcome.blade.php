@@ -141,6 +141,9 @@
         color: rgb(107 114 128 / var(--tw-text-opacity))}}
         img{width: 50px;
         height: 50px;}
+        a:hover{
+    color: royalblue;
+}
         /* background-size: contain;
         background-image: url("../public/logo.png");} */
 </style>
