@@ -43,8 +43,7 @@ class AdminController extends Controller
     }
     public function show($id)
     {
-        // $answer = Answer::findOrFail($id);
-        // return view('quizz.show', [ 'answer' => $answer ]);
+        //
     }
     /**
      * Remove the specified resource from storage.
