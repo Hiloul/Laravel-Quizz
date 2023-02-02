@@ -59,7 +59,7 @@ class QuizzController extends Controller
         // $id = Auth::id();
         $personnage->save();
       
-        return view('welcome')->with('message', 'Créer avec succès');
+        return view('/welcome')->with('message', 'Créer avec succès');
     }
 
     /**

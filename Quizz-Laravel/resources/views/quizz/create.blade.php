@@ -32,33 +32,35 @@
     @endif
 
 <style>
-    h1{font-size: x-large;
-    text-align: center;}
+    h2{font-size: x-large;
+    text-align: center;
+    text-transform: uppercase;}
     textarea{resize: none;
     outline: none;}
     form{outline-style: none;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;}
+    flex-direction: column;
+    height: 600px;}
 </style>
 
-<h1>Répondre au questionnaire</h1>
+<h2>Répondre au questionnaire</h2>
 
     <form action="{{ route('quizz.store') }}" method="POST">
         @csrf
     
         <!-- Question 1 -->
         <label for="answer1">Question 1 ?</label>
-        <input type="text" name="answer1" id="answer1" placeholder="Réponse 1" />
+        <input type="text" name="answer1" id="answer1" placeholder="Ecris un mot..." />
 
         <!-- Question 2 -->
         <label for="answer2">Question 2 ?</label>
-        <input type="text" name="answer2" id="answer2" placeholder="Réponse 2" />
+        <input type="text" name="answer2" id="answer2" placeholder="Ecris un mot..." />
 
         <!-- Question 3 -->
         <label for="answer3">Question 3 ?</label>
-        <input type="text" name="answer3" id="answer3" placeholder="Réponse 3" />
+        <input type="text" name="answer3" id="answer3" placeholder="Ecris un mot..." />
 
         <!-- Question 4 -->
         <label for="answer4">Question 4 ?</label>
@@ -74,7 +76,7 @@
 
         <!-- Question 5 -->
         <label for="answer5">Qu'avez vous pensé de ce test ?</label>
-        <textarea name="answer5" id="answer5" placeholder="Description" ></textarea>
+        <textarea name="answer5" id="answer5" placeholder="Ecris quelque chose..." ></textarea>
 
         <!-- Input email -->
         <label for="email">Veuillez renseigner votre email</label>
@@ -83,6 +85,7 @@
         {{-- <button>Envoyer</button> --}}
         <input type="submit" value="Envoyer" id="button" />
     </form>
-    
-    
+<div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
+    Laravel Quizz&copy; Hilel 2023
+</div>
 @endsection

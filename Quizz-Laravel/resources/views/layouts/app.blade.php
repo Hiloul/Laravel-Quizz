@@ -31,8 +31,6 @@
             <main>
             @yield('principale')
             </main>
-
-    
         </div>
     </body>
 </html>
