@@ -18,7 +18,7 @@
     @endforeach
 </ul>
 <div class="card my-4">
-        <h5 class="card-header">Recherche</h5>
+        <!-- <h5 class="card-header">Recherche</h5> -->
         <form class="card-body" action="/search" method="GET" role="search">
             {{ csrf_field() }}
             <div class="input-group">
@@ -36,6 +36,12 @@
 
 
 <style>
+    .card{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
     nav{display: flex;
 justify-content: space-evenly;
 align-items:center ;}
