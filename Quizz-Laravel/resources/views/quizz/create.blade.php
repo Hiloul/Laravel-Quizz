@@ -52,27 +52,27 @@ margin-top: 10px;}
         @csrf
     
         <!-- Question 1 -->
-        <label for="answer1">Question 1 ?</label>
+        <label for="answer1">Question 1: Avez-vous des animaux ?</label>
         <input type="text" name="answer1" id="answer1" placeholder="Ecris un mot..." />
 
         <!-- Question 2 -->
-        <label for="answer2">Question 2 ?</label>
+        <label for="answer2">Question 2: Quels hobbies avez-vous ?</label>
         <input type="text" name="answer2" id="answer2" placeholder="Ecris un mot..." />
 
         <!-- Question 3 -->
-        <label for="answer3">Question 3 ?</label>
+        <label for="answer3">Question 3 Dans quelle ville vivez-vous ?</label>
         <input type="text" name="answer3" id="answer3" placeholder="Ecris un mot..." />
 
         <!-- Question 4 -->
-        <label for="answer4">Question 4 ?</label>
+        <label for="answer4">Question 4: Quelle couleur préférez vous ?</label>
         <select name="answer4" id="answer4">
 
         <option>--Choisissez votre réponse--</option>
-        <option value="un">Un</option>
-        <option value="deux">Deux</option>
-        <option value="trois">Trois</option>
-        <option value="quatre">Quatre</option>
-        <option value="cinq">Cinq</option>
+        <option value="un">Bleu</option>
+        <option value="deux">Jaune</option>
+        <option value="trois">Rouge</option>
+        <option value="quatre">Vert</option>
+        <option value="cinq">orange</option>
         </select>
 
         <!-- Question 5 -->
