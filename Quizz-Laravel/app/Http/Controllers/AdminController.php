@@ -35,7 +35,7 @@ class AdminController extends Controller
       public function search()
     {
         $search_text= $_GET['query'];
-        $answers = Answer::where('email','LIKE',`%`.$search_text.`%`)->get();
+        $answers = Answer::where('email','LIKE',`%`.$search_text.`%`)->with('email')->get();
         return view('admin.private.search', compact('answers'));
     }
     

@@ -26,7 +26,7 @@
 <form class="form-inline my-2 my-lg-0" method="get" action="{{url('/search')}}">
 {{ csrf_field() }}
 <input class="form-control mr-sm-2" name="query" type="search" placeholder="Rechercher">
-<button class="btn btn-outline-light my-2 my-sm-0" type="submit">Rechercher</button>
+<button class="btn btn-outline-light my-2 my-sm-0" type="submit">Go!</button>
 </form>
     </div>
 

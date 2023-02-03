@@ -1,45 +1,76 @@
 @extends('layouts.app')
+
 @section('principale')
-   <div class="row">
-        <!-- Blog Entries Column -->
-        <div class="col-md-8">
-            <h1 class="my-4">Résultat de recherche pour:
-                <small>{{$key}}</small>
-            </h1>
-            <!-- @include('_partials.posts-list')
-        </div>
-        @include('_partials.sidebar')
-    </div> -->
-
-
-<body>
-<form method="post" action="http://localhost/laravel/blog/public/findSearch">				
-<input type="text" name= "search">
-<input type="hidden" name="_token" value="{{ csrf_token() }}">
-<button>Search Now</button>				
+<h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+<nav>
+<a href="/"><img src="../logoo.png" alt=""></a>
+<a href="/admin">Home'Admin</a>
+<a href="/getFullUsersAnswers">Toutes les réponses</a>
+<a href="/getAnswersByEmail">Réponses par email</a>
+</nav>
+</h2>
+<h2>Résultats de vos recherches</h2>
+<ul>
+    @foreach($answers as $answer)
+    <li id="titleUl">Réponses des utilisateurs</li>
+    <li>{{$answer->answer1}}</li>
+    <li>{{$answer->answer2}}</li>
+    <li>{{$answer->answer3}}</li>
+    <li>{{$answer->answer4}}</li>
+    <li>{{$answer->answer5}}</li>
+    <li>{{$answer->email}}</li>
+    <div id="lastUl"></div>
+    @endforeach
+</ul>
+<div class="card my-4">
+<form class="form-inline my-2 my-lg-0" method="get" action="{{url('/search')}}">
+{{ csrf_field() }}
+<input class="form-control mr-sm-2" name="query" type="search" placeholder="Rechercher">
+<button class="btn btn-outline-light my-2 my-sm-0" type="submit">Go!</button>
 </form>
-<?php
-if(isset($details)){
-	
-	?>
-	 <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Email</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($answers as $answer)
-            <tr>
-                <td>{{$answer->name}}</td>
-                <td>{{$answer->email}}</td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
-	<?php
-}
-?>
+    </div>
+
+
+
+<div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
+    Laravel Quizz&copy; Hilel 2023
+</div>
 @endsection
+
+<style>
+     .card{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    a:hover{
+    color: royalblue;
+}
+    nav{display: flex;
+justify-content: space-evenly;
+align-items: center;}
+  img{width: 50px;
+        height: 50px;
+    margin-left: 10px;
+margin-top: 10px;}
+h2{text-transform: uppercase;
+text-align: center;}
+ul{display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+}
+#titleUl{
+    font-weight: 600;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    color: royalblue;
+}
+#lastUl{
+   border: 0.1px dashed grey;
+   width: 90%;
+   color: royalblue;
+}
+</style>
 
