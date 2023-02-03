@@ -32,14 +32,11 @@ class AdminController extends Controller
         
         return view('admin.private.getAnswersByEmail',['answers'=>$answers]);
     }
-      public function search(Request $request)
+      public function search()
     {
-        $key = trim($request->get('q'));
-
-
-        return view('admin.private.getAnswersByEmail', [
-            'key' => $key,
-        ]);
+        $search_text= $_GET['query'];
+        $answers = Answer::where('email','LIKE',`%`.$search_text.`%`)->get();
+        return view('admin.private.search', compact('answers'));
     }
     
     public function getAnswer($id)
