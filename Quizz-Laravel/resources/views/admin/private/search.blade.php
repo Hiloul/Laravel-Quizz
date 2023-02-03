@@ -24,13 +24,12 @@
 </ul>
 <div class="card my-4">
 <form class="form-inline my-2 my-lg-0" method="get" action="{{url('/search')}}">
-{{ csrf_field() }}
+{{ csrf_field()}}
+@method('GET')
 <input class="form-control mr-sm-2" name="query" type="search" placeholder="Rechercher">
 <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Go!</button>
 </form>
     </div>
-
-
 
 <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
     Laravel Quizz&copy; Hilel 2023
@@ -42,8 +41,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 600px;
-        
+        height: 600px;  
     }
     a:hover{
     color: royalblue;
