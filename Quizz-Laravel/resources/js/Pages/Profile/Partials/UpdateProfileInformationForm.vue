@@ -77,7 +77,7 @@ const form = useForm({
                     v-show="props.status === 'verification-link-sent'"
                     class="mt-2 font-medium text-sm text-green-600 dark:text-green-400"
                 >
-                    A new verification link has been sent to your email address.
+                    Un nouveau lien de vérification vous a été envoyé sur votre adresse email.
                 </div>
             </div>
 
@@ -85,7 +85,7 @@ const form = useForm({
                 <PrimaryButton :disabled="form.processing">Save</PrimaryButton>
 
                 <Transition enter-from-class="opacity-0" leave-to-class="opacity-0" class="transition ease-in-out">
-                    <p v-if="form.recentlySuccessful" class="text-sm text-gray-600 dark:text-gray-400">Saved.</p>
+                    <p v-if="form.recentlySuccessful" class="text-sm text-gray-600 dark:text-gray-400">Enregistré.</p>
                 </Transition>
             </div>
         </form>
