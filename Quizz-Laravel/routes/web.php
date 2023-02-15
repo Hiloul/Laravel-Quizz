@@ -22,7 +22,7 @@ Route::get('/', function () {
 });
 //Route login/s'inscrire
 Route::get('/', function () {
-    return view('Welcome', [
+    return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
         'laravelVersion' => Application::VERSION,
