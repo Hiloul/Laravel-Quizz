@@ -103,18 +103,16 @@ class QuizzController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Answer $category)
+    public function destroy($id)
     {
-        $category->delete();
+    
+        DB::delete('delete from student where id = ?',[$id]);
+        echo "Record deleted successfully.<br/>";
+        echo '<a href = "/delete-records">Click Here</a> to go back.';
 
         return back()->with([
             'message' => 'successfully deleted !',
             'alert-type' => 'danger'
         ]);
     }
-    public function destroy($id) {
-        DB::delete('delete from student where id = ?',[$id]);
-        echo "Record deleted successfully.<br/>";
-        echo '<a href = "/delete-records">Click Here</a> to go back.';
-     }
 }
