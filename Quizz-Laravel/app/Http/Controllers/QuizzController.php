@@ -106,7 +106,7 @@ class QuizzController extends Controller
     public function destroy($id)
     {
     
-        DB::delete('delete from student where id = ?',[$id]);
+        Answer::findOrFail($id);
         echo "Record deleted successfully.<br/>";
         echo '<a href = "/delete-records">Click Here</a> to go back.';
 
