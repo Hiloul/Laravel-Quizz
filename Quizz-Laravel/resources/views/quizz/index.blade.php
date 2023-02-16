@@ -15,6 +15,20 @@
     @endforeach
     <h3> Votre email: {{ $answer->email}}</h3>
 </ul>
+
+@if (session()->has('message'))
+<div class="mx-auto w-4/5 pb-10">
+    <div class="bg-red-500 text-white font-bold rounded-t px-4 py-2">
+        Attention
+    </div>
+    <div>
+        {{session()->get('message')}}
+    </div>
+
+</div>
+@endif
+
+
 <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
     Laravel Quizz&copy; Hilel 2023
 </div>

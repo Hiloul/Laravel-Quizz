@@ -106,6 +106,6 @@ class QuizzController extends Controller
     public function destroy($id)
     {
     Answer::destroy($id);
-    return view('/welcome')->with('message', 'Créer avec succès');
+    return view('quizz.index')->with('message', 'Supprimé avec succès');
     }
 }
