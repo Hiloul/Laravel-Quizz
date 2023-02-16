@@ -105,14 +105,6 @@ class QuizzController extends Controller
      */
     public function destroy($id)
     {
-    
-        $answer = Answer::findOrFail($id);
-        echo "Record deleted successfully.<br/>";
-        echo '<a href = "/delete-records">Click Here</a> to go back.';
-
-        return back()->with([
-            'message' => 'successfully deleted !',
-            'alert-type' => 'danger'
-        ]);
+    Answer::destroy();
     }
 }
