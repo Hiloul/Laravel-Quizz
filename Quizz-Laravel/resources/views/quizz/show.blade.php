@@ -26,7 +26,7 @@ text-align: center;}
     <h3>Réponse à la question 4: {{ $answer->answer4}}</h3>
     <h3>Réponse à la question 5: {{ $answer->answer5}}</h3>
     <h3> Votre email: {{ $answer->email}}</h3>
-    <td><a href = ''>Delete</a></td>
+    <td><a href = 'delete/{{ $answer->id }}'>Delete</a></td>
     </div>
 <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
 Laravel Quizz&copy; Hilel 2023

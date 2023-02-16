@@ -112,4 +112,9 @@ class QuizzController extends Controller
             'alert-type' => 'danger'
         ]);
     }
+    public function destroy($id) {
+        DB::delete('delete from student where id = ?',[$id]);
+        echo "Record deleted successfully.<br/>";
+        echo '<a href = "/delete-records">Click Here</a> to go back.';
+     }
 }

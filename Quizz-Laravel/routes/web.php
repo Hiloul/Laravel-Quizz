@@ -57,6 +57,8 @@ Route::get('/quizz/create', [QuizzController::class, 'create'])->name('quizz.cre
 Route::post('/quizz', [QuizzController::class, 'store'])->name('quizz.store');
 Route::get('/quizz/{id}', [QuizzController::class, 'show'])->name('quizz.show');
 Route::delete('/quizz/delete', [QuizzController::class, 'delete'])->name('quizz.delete');
+Route::get('delete/{id}','StudDeleteController@destroy');
+
         
 //Route::Update ?
 //Route::Delete ?
