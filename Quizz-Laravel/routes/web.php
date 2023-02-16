@@ -56,7 +56,7 @@ Route::get('/quizz', [QuizzController::class, 'index'])->name('quizz.index');
 Route::get('/quizz/create', [QuizzController::class, 'create'])->name('quizz.create')->where('id', '[0-9]+');
 Route::post('/quizz', [QuizzController::class, 'store'])->name('quizz.store');
 Route::get('/quizz/{id}', [QuizzController::class, 'show'])->name('quizz.show');
-Route::delete('/quizz/delete', [QuizzController::class, 'delete'])->name('quizz.delete');
+Route::delete('/delete/{id}', [QuizzController::class, 'delete'])->name('quizz.delete');
 Route::get('delete/{id}','StudDeleteController@destroy');
 
         
