@@ -10,11 +10,8 @@ class Question extends Model
     use HasFactory;
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
+    //Question appartient à catégorie
     public function category(){
         return $this->belongsTo(Category::class);
-    }
-
-    public function questionOptions(){
-        return $this->hasMany(Option::class);
     }
 }
