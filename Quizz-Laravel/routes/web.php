@@ -5,6 +5,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QuizzController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SocialShareButtonsController;
+
 use Inertia\Inertia;
 /*
 |--------------------------------------------------------------------------
@@ -61,5 +63,9 @@ Route::get('/delete/{id}', [QuizzController::class, 'destroy'])->name('quizz.des
         
 //Route::Update ?
 //Route::Delete ?
+
+
+Route::get('/social-media-share', [SocialShareButtonsController::class,'ShareWidget']);
+
 
 require __DIR__ . '/auth.php';
