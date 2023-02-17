@@ -59,6 +59,10 @@ Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
 Route::resource('categories', \App\Http\Controllers\Admin\CategoryController::class);
 Route::delete('categories_mass_destroy', [\App\Http\Controllers\Admin\CategoryController::class, 'massDestroy'])->name('categories.mass_destroy');
 
+ //Route des questions
+ Route::resource('questions', \App\Http\Controllers\Admin\QuestionController::class);
+ Route::delete('questions_mass_destroy', [\App\Http\Controllers\Admin\QuestionController::class, 'massDestroy'])->name('questions.mass_destroy');
+
 
 //Route de partage
 Route::get('/social-media-share', [SocialShareButtonsController::class,'ShareWidget']);
