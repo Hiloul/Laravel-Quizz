@@ -26,17 +26,13 @@ text-align: center;}
     <h3>Réponse à la question 4: {{ $answer->answer4}}</h3>
     <h3>Réponse à la question 5: {{ $answer->answer5}}</h3>
     <h3> Votre email: {{ $answer->email}}</h3>
-    <form action="{{ route ('quizz.delete'), $answer->id }}" method="POST">
+    <!-- <form action="{{ route ('quizz.delete'), $answer->id }}" method="POST">
       @csrf
       @method('DELETE')
       <button class="pt-3 text-red-500 pr-3" type="submit">
         Supprimer
       </button>  
-    </form>
-    <div class="container mt-4">
-            <h2 class="mb-5 text-center">Laravel Social Share Buttons Example</h2>
-            {!! $shareComponent !!}
-        </div>
+    </form> -->
     </div>
 <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
 Laravel Quizz&copy; Hilel 2023

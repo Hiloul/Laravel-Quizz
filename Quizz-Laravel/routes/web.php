@@ -51,7 +51,11 @@ Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
     Route::get('/getAnswersByEmail', [AdminController::class, 'getAnswersByEmail'])->name('admin.private.getAnswersByEmail');
     Route::get('/getAnswersByUser', [AdminController::class, 'getAnswersByUser'])->name('admin.private.getAnswersByUser');
     Route::get('/search', [AdminController::class, 'search'])->name('admin.private.search');
+    
 });
+
+//Route de partage
+Route::get('/social-media-share', [SocialShareButtonsController::class,'ShareWidget']);
 
 //Route Reponses au quizz
 Route::get('/quizz', [QuizzController::class, 'index'])->name('quizz.index');
