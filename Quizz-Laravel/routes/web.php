@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QuizzController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\QuestionController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SocialShareButtonsController;
@@ -58,7 +59,7 @@ Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
 //Route des catégories
 Route::resource('categories', \App\Http\Controllers\Admin\CategoryController::class);
 Route::delete('categories_mass_destroy', [\App\Http\Controllers\Admin\CategoryController::class, 'massDestroy'])->name('categories.mass_destroy');
-
+Route::get('/categories', [CategoryController::class, 'index'])->name('questions.index');
  //Route des questions
  Route::resource('questions', \App\Http\Controllers\Admin\QuestionController::class);
  Route::delete('questions_mass_destroy', [\App\Http\Controllers\Admin\QuestionController::class, 'massDestroy'])->name('questions.mass_destroy');
