@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('principale')
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <style>
@@ -14,18 +18,8 @@
     color: #222;
     background-color: #ccc;}
     </style>
-    </head>
-    <body>
-
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
-
         <div class="container mt-4">
             <h2 class="mb-5 text-center">Partagez vos réponses à vos amis !</h2>
             {!! $shareComponent !!}
         </div>
-    </body>
-</html>
+@endsection
