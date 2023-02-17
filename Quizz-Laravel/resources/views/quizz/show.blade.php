@@ -33,6 +33,10 @@ text-align: center;}
         Supprimer
       </button>  
     </form>
+    <div class="container mt-4">
+            <h2 class="mb-5 text-center">Laravel Social Share Buttons Example</h2>
+            {!! $shareComponent !!}
+        </div>
     </div>
 <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
 Laravel Quizz&copy; Hilel 2023
