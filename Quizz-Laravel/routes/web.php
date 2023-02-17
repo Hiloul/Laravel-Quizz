@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QuizzController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SocialShareButtonsController;
@@ -53,6 +54,11 @@ Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
     Route::get('/search', [AdminController::class, 'search'])->name('admin.private.search');
     
 });
+
+//Route des catégories
+Route::resource('categories', \App\Http\Controllers\Admin\CategoryController::class);
+Route::delete('categories_mass_destroy', [\App\Http\Controllers\Admin\CategoryController::class, 'massDestroy'])->name('categories.mass_destroy');
+
 
 //Route de partage
 Route::get('/social-media-share', [SocialShareButtonsController::class,'ShareWidget']);
