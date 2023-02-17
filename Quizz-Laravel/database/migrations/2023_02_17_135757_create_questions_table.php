@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
+            $table->foreignIdFor(Category::class)->constrained()->cascadeOnUpdate();
+            $table->longText('question_text');
             $table->timestamps();
         });
     }
