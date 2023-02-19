@@ -18,59 +18,68 @@ class QuestionController extends Controller
         return view('questions.index', compact('questions'));
     }
 
-    public function create(): View
+    public function create()
     {
-        $categories = Category::all()->pluck('name', 'id');
-
-        return view('questions.create', compact('categories'));
+        return view('questions.create');
     }
 
-    public function store(QuestionRequest $request): RedirectResponse
+    public function store(Request $request)
     {
-        Question::create($request->validated());
-
-        return redirect()->route('questions.index')->with([
-            'message' => 'successfully created !',
-            'alert-type' => 'success'
+        $request->validate([
+            'question_text' => 'required',
         ]);
-    }
-
-    public function show(Question $question): View
-    {
-        return view('questions.show', compact('question'));
-    }
-
-    public function edit(Question $question): View
-    {
-        $categories = Category::all()->pluck('name', 'id');
-
-        return view('questions.edit', compact('question', 'categories'));
-    }
-
-    public function update(QuestionRequest $request, Question $question): RedirectResponse
-    {
-        $question->update($request->validated());
-
-        return redirect()->route('questions.index')->with([
-            'message' => 'successfully updated !',
-            'alert-type' => 'info'
+        $questions = Question::create([
+            'question_text' => $request->input('question_text'),
         ]);
+        $questions->save();
+        return view('/welcome')->with('message', 'Créer avec succès');
     }
+    // public function store(Request $request)
+    // {
+    //     Question::create($request->validated());
 
-    public function destroy(Question $question): RedirectResponse
-    {
-        $question->delete();
+    //     return redirect()->route('questions.index')->with([
+    //         'message' => 'successfully created !',
+    //         'alert-type' => 'success'
+    //     ]);
+    // }
 
-        return back()->with([
-            'message' => 'successfully deleted !',
-            'alert-type' => 'danger'
-        ]);
-    }
+    // public function show(Question $question): View
+    // {
+    //     return view('questions.show', compact('question'));
+    // }
 
-    public function massDestroy()
-    {
-        Question::whereIn('id', request('ids'))->delete();
+    // public function edit(Question $question): View
+    // {
+    //     $categories = Category::all()->pluck('name', 'id');
 
-        return response()->noContent();
-    }
+    //     return view('questions.edit', compact('question', 'categories'));
+    // }
+
+    // public function update(QuestionRequest $request, Question $question): RedirectResponse
+    // {
+    //     $question->update($request->validated());
+
+    //     return redirect()->route('questions.index')->with([
+    //         'message' => 'successfully updated !',
+    //         'alert-type' => 'info'
+    //     ]);
+    // }
+
+    // public function destroy(Question $question): RedirectResponse
+    // {
+    //     $question->delete();
+
+    //     return back()->with([
+    //         'message' => 'successfully deleted !',
+    //         'alert-type' => 'danger'
+    //     ]);
+    // }
+
+    // public function massDestroy()
+    // {
+    //     Question::whereIn('id', request('ids'))->delete();
+
+    //     return response()->noContent();
+    // }
 }
