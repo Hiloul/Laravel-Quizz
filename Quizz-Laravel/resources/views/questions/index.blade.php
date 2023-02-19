@@ -13,7 +13,7 @@
                     {{ __('question') }}
                 </h6>
                 <div class="ml-auto">
-                    <a href="{{ route('admin.questions.create') }}" class="btn btn-primary">
+                    <a href="{{ route('questions.create') }}" class="btn btn-primary">
                         <span class="icon text-white-50">
                             <i class="fa fa-plus"></i>
                         </span>
@@ -46,10 +46,10 @@
                                 <td>{{ $question->question_text }}</td>
                                 <td>
                                     <div class="btn-group btn-group-sm">
-                                        <a href="{{ route('admin.questions.edit', $question->id) }}" class="btn btn-info">
+                                        <a href="{{ route('questions.edit', $question->id) }}" class="btn btn-info">
                                             <i class="fa fa-pencil-alt"></i>
                                         </a>
-                                        <form onclick="return confirm('are you sure ? ')" class="d-inline" action="{{ route('admin.questions.destroy', $question->id) }}" method="POST">
+                                        <form onclick="return confirm('are you sure ? ')" class="d-inline" action="{{ route('questions.destroy', $question->id) }}" method="POST">
                                             @csrf
                                             @method('delete')
                                             <button class="btn btn-danger" style="border-top-left-radius: 0;border-bottom-left-radius: 0;">
@@ -81,7 +81,7 @@
   let deleteButtonTrans = 'delete selected'
   let deleteButton = {
     text: deleteButtonTrans,
-    url: "{{ route('admin.questions.mass_destroy') }}",
+    url: "{{ route('questions.mass_destroy') }}",
     className: 'btn-danger',
     action: function (e, dt, node, config) {
       var ids = $.map(dt.rows({ selected: true }).nodes(), function (entry) {

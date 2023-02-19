@@ -66,9 +66,9 @@ Route::post('/categories', [CategoryController::class, 'store'])->name('admin.ca
 });
 
  //Route des questions
- Route::resource('questions', \App\Http\Controllers\Admin\QuestionController::class);
- Route::delete('questions_mass_destroy', [\App\Http\Controllers\Admin\QuestionController::class, 'massDestroy'])->name('questions.mass_destroy');
-
+ Route::get('/questions', [QuestionController::class, 'index'])->name('questions.index');  
+Route::get('/questions/create', [QuestionController::class, 'create'])->name('questions.create')->where('id', '[0-9]+');
+Route::post('/questions', [QuestionController::class, 'store'])->name('questions.store');
 
 //Route de partage
 Route::get('/social-media-share', [SocialShareButtonsController::class,'ShareWidget']);

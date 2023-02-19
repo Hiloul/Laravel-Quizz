@@ -19,11 +19,11 @@
             <div class="card-header">
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800">{{ __('edit question')}}</h1>
-                    <a href="{{ route('admin.questions.index') }}" class="btn btn-primary btn-sm shadow-sm">{{ __('Go Back') }}</a>
+                    <a href="{{ route('questions.index') }}" class="btn btn-primary btn-sm shadow-sm">{{ __('Go Back') }}</a>
                 </div>
             </div>
             <div class="card-body">
-                <form action="{{ route('admin.questions.update', $question->id) }}" method="POST">
+                <form action="{{ route('questions.update', $question->id) }}" method="POST">
                     @csrf
                     @method('put')
                     <div class="form-group">
