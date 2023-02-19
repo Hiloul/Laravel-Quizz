@@ -5,6 +5,7 @@ use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\Admin\CategoryRequest;
+use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
@@ -20,8 +21,11 @@ class CategoryController extends Controller
         return view('admin.categories.create');
     }
 
-    public function store(CategoryRequest $request): RedirectResponse
+    public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+        ]);
         Category::create($request->validated());
 
         return redirect()->route('admin.categories.index')->with([
