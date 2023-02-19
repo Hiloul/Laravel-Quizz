@@ -8,7 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Question extends Model
 {
     use HasFactory;
-    protected $guarded = ['id', 'created_at', 'updated_at'];
+    protected $fillable =[
+        'id',
+        'question_text',
+        'created_at',
+        'updated_at' 
+    ];
+    
 
     //Question appartient à catégorie
     public function category(){
