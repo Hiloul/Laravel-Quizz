@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name')->unique();
             $table->timestamps();
         });
-        //relation SOUCIS A REGLER
+        //relation SOUCIS reglé. jai deplacer ces relations sur role_usr
         // Schema::table('users', function(Blueprint $table) {
         //     $table->foreign('user_id')->references('id')->on('users');
         // });
