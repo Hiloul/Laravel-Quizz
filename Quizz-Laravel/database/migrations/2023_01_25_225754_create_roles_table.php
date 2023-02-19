@@ -19,12 +19,12 @@ return new class extends Migration
             $table->timestamps();
         });
         //relation SOUCIS A REGLER
-        // Schema::table('users', function(Blueprint $table) {
-        //     $table->foreign('user_id')->references('id')->on('users');
-        // });
-        // Schema::table('roles', function(Blueprint $table) {
-        //     $table->foreign('role_id')->references('id')->on('roles');
-        // });
+        Schema::table('users', function(Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users');
+        });
+        Schema::table('roles', function(Blueprint $table) {
+            $table->foreign('role_id')->references('id')->on('roles');
+        });
     }
 
     /**
