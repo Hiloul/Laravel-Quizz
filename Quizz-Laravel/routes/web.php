@@ -54,9 +54,12 @@ Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
     Route::get('/getAnswersByUser', [AdminController::class, 'getAnswersByUser'])->name('admin.private.getAnswersByUser');
     Route::get('/search', [AdminController::class, 'search'])->name('admin.private.search');
 //Route des catégories
-    Route::resource('categories', \App\Http\Controllers\Admin\CategoryController::class);
-    Route::delete('categories_mass_destroy', [\App\Http\Controllers\Admin\CategoryController::class, 'massDestroy'])->name('categories.mass_destroy');
-    Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');    
+Route::get('/categories', [CategoryController::class, 'index'])->name('admin.categories.index');  
+Route::get('/categorie/create', [CategoryController::class, 'create'])->name('admin.categories.create')->where('id', '[0-9]+');
+Route::post('/categories', [CategoryController::class, 'store'])->name('admin.categories.store');
+    // Route::resource('categories', \App\Http\Controllers\Admin\CategoryController::class);
+    // Route::delete('categories_mass_destroy', [\App\Http\Controllers\Admin\CategoryController::class, 'massDestroy'])->name('categories.mass_destroy');
+      
 });
 
  //Route des questions
