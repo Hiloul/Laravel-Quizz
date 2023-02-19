@@ -7,6 +7,7 @@
 <a href="/admin">Home'Admin</a>
 <a href="/getFullUsersAnswers">Toutes les réponses</a>
 <a href="/getAnswersByEmail">Réponses par email</a>
+<a href="/categories/create">Créer une catégorie</a>
 </nav>
 </h2>
 <h2>Utilisateurs inscrit(e)s sur le site</h2>
