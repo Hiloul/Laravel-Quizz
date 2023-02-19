@@ -26,12 +26,12 @@ class QuestionController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'question_text' => 'required',
+            'name' => 'required',
         ]);
-        $questions = Question::create([
-            'question_text' => $request->input('question_text'),
+        $category = Category::create([
+            'name' => $request->input('name'),
         ]);
-        $questions->save();
+        $category->save();
         return view('/welcome')->with('message', 'Créer avec succès');
     }
     // public function store(Request $request)
