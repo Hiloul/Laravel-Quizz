@@ -31,24 +31,6 @@ class CategoryController extends Controller
         return view('/welcome')->with('message', 'Créer avec succès');
     }
 
-    // public function store(Request $request)
-    // {
-    //     $request->validate([
-    //         'name' => 'required',
-    //     ]);
-    //     $categorie = Category::create([
-    //         'name' => $request->input('name'),
-    //     ]);
-    //     // $id = Auth::id();
-    //     $categorie->save();
-    //     Category::create($request->validated());
-    //     return view('admin.categories.index')->with([
-    //         'message' => 'successfully created !',
-    //         'alert-type' => 'success'
-    //     ]);;
-
-    // }
-
     public function show(Category $category): View
     {
         return view('admin.categories.show', compact('category'));
