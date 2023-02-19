@@ -9,35 +9,45 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    public function index(): View
+    public function index()
     {
         $categories = Category::all();
-
-        return view('admin.categories.index', compact('categories'));
+        return view('admin.categories.index',['categories'=>$categories]);
     }
 
-    public function create(): View
+    public function create()
     {
         return view('admin.categories.create');
     }
-
     public function store(Request $request)
     {
         $request->validate([
             'name' => 'required',
         ]);
-        $categorie = Category::create([
+        $category = Category::create([
             'name' => $request->input('name'),
         ]);
-        // $id = Auth::id();
-        $categorie->save();
-        Category::create($request->validated());
-        return view('admin.categories.index')->with([
-            'message' => 'successfully created !',
-            'alert-type' => 'success'
-        ]);;
-
+        $category->save();
+        return view('/welcome')->with('message', 'Créer avec succès');
     }
+
+    // public function store(Request $request)
+    // {
+    //     $request->validate([
+    //         'name' => 'required',
+    //     ]);
+    //     $categorie = Category::create([
+    //         'name' => $request->input('name'),
+    //     ]);
+    //     // $id = Auth::id();
+    //     $categorie->save();
+    //     Category::create($request->validated());
+    //     return view('admin.categories.index')->with([
+    //         'message' => 'successfully created !',
+    //         'alert-type' => 'success'
+    //     ]);;
+
+    // }
 
     public function show(Category $category): View
     {
@@ -49,30 +59,30 @@ class CategoryController extends Controller
         return view('admin.categories.edit', compact('category'));
     }
 
-    public function update(Request $request, $id): RedirectResponse
-    {
-        $id->update($request->validated());
+    // public function update(Request $request, $id): RedirectResponse
+    // {
+    //     $id->update($request->validated());
 
-        return redirect()->route('admin.categories.index')->with([
-            'message' => 'successfully updated !',
-            'alert-type' => 'info'
-        ]);
-    }
+    //     return redirect()->route('admin.categories.index')->with([
+    //         'message' => 'successfully updated !',
+    //         'alert-type' => 'info'
+    //     ]);
+    // }
 
-    public function destroy(Category $category): RedirectResponse
-    {
-        $category->delete();
+    // public function destroy(Category $category): RedirectResponse
+    // {
+    //     $category->delete();
 
-        return back()->with([
-            'message' => 'successfully deleted !',
-            'alert-type' => 'danger'
-        ]);
-    }
+    //     return back()->with([
+    //         'message' => 'successfully deleted !',
+    //         'alert-type' => 'danger'
+    //     ]);
+    // }
 
-    public function massDestroy()
-    {
-        Category::whereIn('id', request('ids'))->delete();
+    // public function massDestroy()
+    // {
+    //     Category::whereIn('id', request('ids'))->delete();
 
-        return response()->noContent();
-    }
+    //     return response()->noContent();
+    // }
 }
