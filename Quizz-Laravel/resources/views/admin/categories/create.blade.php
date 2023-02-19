@@ -28,8 +28,8 @@
                 <form action="{{ route('admin.categories.store') }}" method="POST">
                     @csrf
                     <div class="form-group">
-                        <label for="name">{{ __('name') }}</label>
-                        <input type="text" class="form-control" id="name" placeholder="{{ __('name') }}" name="name" value="{{ old('Nom de la catégorie...') }}" />
+                        <label for="name">{{ __('Nom: ') }}</label>
+                        <input type="text" class="form-control" id="name" placeholder="{{ __('Nom de la catégorie...') }}" name="name" value="{{ old('name') }}" />
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">{{ __('Enregistrer') }}</button>
                 </form>
@@ -40,14 +40,19 @@
     <!-- Content Row -->
 
 </div>
+<div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
+    Laravel Quizz&copy; Hilel 2023
+</div>
 @endsection
 
 <style>
-    .cardshadow{
-       color: blue; 
+    .card-header{
+       margin-left: 10px; 
+       text-align: center;
     }
     form{display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;}
+    flex-direction: column;
+    height: 800px;}
 </style>

@@ -26,12 +26,17 @@ class CategoryController extends Controller
         $request->validate([
             'name' => 'required',
         ]);
+        $categorie = Category::create([
+            'name' => $request->input('name'),
+        ]);
+        // $id = Auth::id();
+        $categorie->save();
         Category::create($request->validated());
-
-        return redirect()->route('admin.categories.index')->with([
+        return view('admin.categories.index')->with([
             'message' => 'successfully created !',
             'alert-type' => 'success'
-        ]);
+        ]);;
+
     }
 
     public function show(Category $category): View
@@ -44,9 +49,9 @@ class CategoryController extends Controller
         return view('admin.categories.edit', compact('category'));
     }
 
-    public function update(CategoryRequest $request, Category $category): RedirectResponse
+    public function update(Request $request, $id): RedirectResponse
     {
-        $category->update($request->validated());
+        $id->update($request->validated());
 
         return redirect()->route('admin.categories.index')->with([
             'message' => 'successfully updated !',
