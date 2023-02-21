@@ -18,12 +18,13 @@ return new class extends Migration
             $table->id();
             //RELATION A CORRIGER AUSSI
             // $table->foreignIdFor(Category::class)->constrained()->cascadeOnUpdate();
+            // $table->integer('category_id');
             $table->longText('question_text');
             $table->timestamps();
         });
-        Schema::table('answers', function(Blueprint $table) {
-            $table->foreign('email')->references('email')->on('categories');
-        });
+        // Schema::table('answers', function(Blueprint $table) {
+        //     $table->foreign('email')->references('email')->on('categories');
+        // });
     }
 
     /**
