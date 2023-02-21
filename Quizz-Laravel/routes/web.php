@@ -54,22 +54,25 @@ Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
     Route::get('/getAnswersByUser', [AdminController::class, 'getAnswersByUser'])->name('admin.private.getAnswersByUser');
     Route::get('/search', [AdminController::class, 'search'])->name('admin.private.search');
 //Route des catégories
-Route::get('/categories', [CategoryController::class, 'index'])->name('admin.categories.index');  
-Route::get('/categories/create', [CategoryController::class, 'create'])->name('admin.categories.create')->where('id', '[0-9]+');
-Route::post('/categories', [CategoryController::class, 'store'])->name('admin.categories.store');
-Route::post('/categories/{category}/edit', [CategoryController::class, 'edit'])->name('admin.categories.edit');
-Route::get('/categories/{id}', [CategoryController::class, 'show'])->name('admin.categories.show');
-Route::delete('/categories/{id}', [CategoryController::class, 'destroy'])->name('admin.categories.destroy');
-Route::delete('categories_mass_destroy', [CategoryController::class, 'massDestroy'])->name('admin.categories.mass_destroy');  
+    Route::get('/categories', [CategoryController::class, 'index'])->name('admin.categories.index');  
+    Route::get('/categories/create', [CategoryController::class, 'create'])->name('admin.categories.create')->where('id', '[0-9]+');
+    Route::post('/categories', [CategoryController::class, 'store'])->name('admin.categories.store');
+    Route::post('/categories/{category}/edit', [CategoryController::class, 'edit'])->name('admin.categories.edit');
+    Route::get('/categories/{id}', [CategoryController::class, 'show'])->name('admin.categories.show');
+    Route::delete('/categories/{id}', [CategoryController::class, 'destroy'])->name('admin.categories.destroy');
+    Route::delete('categories_mass_destroy', [CategoryController::class, 'massDestroy'])->name('admin.categories.mass_destroy');  
+//Route des résultats
+    Route::resource('results', \App\Http\Controllers\Admin\ResultController::class);
+    Route::delete('results_mass_destroy', [\App\Http\Controllers\Admin\ResultController::class, 'massDestroy'])->name('results.mass_destroy');
+    
 });
-
- //Route des questions
-Route::get('/questions', [QuestionController::class, 'index'])->name('questions.index');  
-Route::get('/questions/create', [QuestionController::class, 'create'])->name('questions.create')->where('id', '[0-9]+');
-Route::post('/questions', [QuestionController::class, 'store'])->name('questions.store');
-Route::post('/questions/{question}/edit', [QuestionController::class, 'edit'])->name('questions.edit');
-Route::delete('/questions/{id}', [QuestionController::class, 'destroy'])->name('questions.destroy');
-Route::delete('questions_mass_destroy', [QuestionController::class, 'massDestroy'])->name('questions.mass_destroy'); 
+//Route des questions
+    Route::get('/questions', [QuestionController::class, 'index'])->name('questions.index');  
+    Route::get('/questions/create', [QuestionController::class, 'create'])->name('questions.create')->where('id', '[0-9]+');
+    Route::post('/questions', [QuestionController::class, 'store'])->name('questions.store');
+    Route::post('/questions/{question}/edit', [QuestionController::class, 'edit'])->name('questions.edit');
+    Route::delete('/questions/{id}', [QuestionController::class, 'destroy'])->name('questions.destroy');
+    Route::delete('questions_mass_destroy', [QuestionController::class, 'massDestroy'])->name('questions.mass_destroy'); 
 
 //Route de partage
 Route::get('/social-media-share', [SocialShareButtonsController::class,'ShareWidget']);

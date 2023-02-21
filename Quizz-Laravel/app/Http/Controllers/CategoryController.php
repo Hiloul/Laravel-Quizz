@@ -52,14 +52,12 @@ class CategoryController extends Controller
         ]);
     }
 
-    public function destroy(Category $category): RedirectResponse
+   
+    public function destroy(Category $category)
     {
         $category->delete();
 
-        return back()->with([
-            'message' => 'successfully deleted !',
-            'alert-type' => 'danger'
-        ]);
+        return redirect(route('admin.categories.index'));
     }
 
     public function massDestroy()

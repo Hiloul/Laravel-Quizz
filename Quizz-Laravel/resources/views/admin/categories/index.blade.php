@@ -47,7 +47,7 @@
                                     <a href="{{ route('admin.categories.edit', $category->id) }}" class="btn btn-info">
                                         <button>Editer</button>
                                     </a>
-                                    <form onclick="return confirm('En êtes-vous sur(e) ? ')" class="d-inline" action="{{ route('admin.categories.destroy', $category->id) }}" method="POST">
+                                    <form onclick="return confirm('En êtes-vous sur(e) ?')" class="d-inline" action="{{ route('admin.categories.destroy', $category->id) }}" method="POST">
                                         @csrf
                                         @method('delete')
                                         <button class="btn btn-danger" style="border-top-left-radius: 0;border-bottom-left-radius: 0;">
