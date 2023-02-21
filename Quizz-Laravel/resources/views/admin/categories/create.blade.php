@@ -54,5 +54,5 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 800px;}
+    height: 600px;}
 </style>

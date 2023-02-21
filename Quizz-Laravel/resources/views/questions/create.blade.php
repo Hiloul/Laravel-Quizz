@@ -28,11 +28,11 @@
                 <form action="{{ route('questions.store') }}" method="POST">
                     @csrf
                     <div class="form-group">
-                        <label for="question_text">{{ __('question text') }}</label>
-                        <input type="text" class="form-control" id="question_text" placeholder="{{ __('question text') }}" name="question_text" value="{{ old('question_text') }}" />
+                        <label for="question_text">{{ __('Nouvelle question: ') }}</label>
+                        <input type="text" class="form-control" id="question_text" placeholder="{{ __('Ecrivez la question ici..') }}" name="question_text" value="{{ old('question_text') }}" />
                     </div>
                     <div class="form-group">
-                        <label for="category">{{ __('Catégorie') }}</label>
+                        <label for="category">{{ __('Catégorie: ') }}</label>
                         <select class="form-control" name="category_id" id="category">
                         @foreach($categories as $id => $category)
                                 <option value="{{ $id }}">{{ $category }}</option>
@@ -48,4 +48,19 @@
     <!-- Content Row -->
 
 </div>
+<div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
+    Laravel Quizz&copy; Hilel 2023
+</div>
 @endsection
+
+<style>
+    .card-header{
+       margin-left: 10px; 
+       text-align: center;
+    }
+    form{display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 600px;}
+</style>
