@@ -66,6 +66,7 @@ Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
     Route::get('/results', [ResultController::class, 'index'])->name('admin.results.index');  
     Route::get('/results/create', [ResultController::class, 'create'])->name('admin.results.create')->where('id', '[0-9]+');
     Route::post('/results', [ResultController::class, 'store'])->name('admin.results.store');
+    Route::get('/results/{id}', [ResultController::class, 'show'])->name('admin.results.show');
     Route::delete('/results/{id}', [ResultController::class, 'destroy'])->name('admin.results.destroy');
     Route::delete('results', [ResultController::class, 'massDestroy'])->name('admin.results.mass_destroy');  
 
@@ -88,10 +89,7 @@ Route::post('/quizz', [QuizzController::class, 'store'])->name('quizz.store');
 Route::get('/quizz/{id}', [QuizzController::class, 'show'])->name('quizz.show');
 Route::get('/delete/{id}', [QuizzController::class, 'destroy'])->name('quizz.destroy');
 
-        
-//Route::Update ?
-//Route::Delete ?
-
+    
 
 Route::get('/social-media-share', [SocialShareButtonsController::class,'ShareWidget']);
 
