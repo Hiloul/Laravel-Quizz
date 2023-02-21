@@ -13,8 +13,8 @@ class QuestionController extends Controller
 {
     public function index()
     {
-        $categories=Question::all();
-        return view('questions.index',['categories'=>$categories]);
+        $question=Question::all();
+        return view('questions.index',['question'=>$question]);
     }
 
     public function create()
@@ -35,16 +35,7 @@ class QuestionController extends Controller
         $question->save();
         return view('/welcome')->with('message', 'Créer avec succès');
     }
-    // public function store(Request $request)
-    // {
-    //     Question::create($request->validated());
-
-    //     return redirect()->route('questions.index')->with([
-    //         'message' => 'successfully created !',
-    //         'alert-type' => 'success'
-    //     ]);
-    // }
-
+   
     // public function show(Question $question): View
     // {
     //     return view('questions.show', compact('question'));

@@ -57,6 +57,7 @@ Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
 Route::get('/categories', [CategoryController::class, 'index'])->name('admin.categories.index');  
 Route::get('/categories/create', [CategoryController::class, 'create'])->name('admin.categories.create')->where('id', '[0-9]+');
 Route::post('/categories', [CategoryController::class, 'store'])->name('admin.categories.store');
+Route::get('/categories/{id}', [CategoryController::class, 'show'])->name('admin.categories.show');
 // Route::get('/categories/{id}/edit', [CategoryController::class, 'edit'])->name('admin.categories.edit');
 // Route::patch('/categories/{id}', [CategoryController::class, 'update'])->name('admin.categories.update');
 // Route::delete('/categories/{id}', [CategoryController::class, 'destroy'])->name('admin.categories.mass_destroy');
