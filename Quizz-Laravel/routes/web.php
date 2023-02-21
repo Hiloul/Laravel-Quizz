@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QuizzController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\ResultController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SocialShareButtonsController;
@@ -62,9 +63,12 @@ Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
     Route::delete('/categories/{id}', [CategoryController::class, 'destroy'])->name('admin.categories.destroy');
     Route::delete('categories_mass_destroy', [CategoryController::class, 'massDestroy'])->name('admin.categories.mass_destroy');  
 //Route des résultats
-    Route::resource('results', \App\Http\Controllers\Admin\ResultController::class);
-    Route::delete('results_mass_destroy', [\App\Http\Controllers\Admin\ResultController::class, 'massDestroy'])->name('results.mass_destroy');
-    
+    Route::get('/results', [ResultController::class, 'index'])->name('admin.results.index');  
+    Route::get('/results/create', [ResultController::class, 'create'])->name('admin.results.create')->where('id', '[0-9]+');
+    Route::post('/results', [ResultController::class, 'store'])->name('admin.results.store');
+    Route::delete('/results/{id}', [ResultController::class, 'destroy'])->name('admin.results.destroy');
+    Route::delete('results', [ResultController::class, 'massDestroy'])->name('admin.results.mass_destroy');  
+
 });
 //Route des questions
     Route::get('/questions', [QuestionController::class, 'index'])->name('questions.index');  
