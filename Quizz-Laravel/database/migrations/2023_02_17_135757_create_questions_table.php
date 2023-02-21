@@ -19,7 +19,7 @@ return new class extends Migration
             //RELATION A CORRIGER AUSSI
             // $table->foreignIdFor(Category::class)->constrained()->cascadeOnUpdate();
             // $table->integer('category_id');
-            $table->foreignIdFor(Category::class);
+            $table->foreignIdFor(Category::class)->nullable();
             $table->longText('question_text');
             $table->timestamps();
         });
