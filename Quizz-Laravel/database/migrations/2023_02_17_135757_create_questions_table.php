@@ -23,9 +23,6 @@ return new class extends Migration
             $table->longText('question_text');
             $table->timestamps();
         });
-        // Schema::table('answers', function(Blueprint $table) {
-        //     $table->foreign('email')->references('email')->on('categories');
-        // });
     }
 
     /**

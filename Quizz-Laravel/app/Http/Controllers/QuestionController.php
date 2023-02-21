@@ -13,23 +13,24 @@ class QuestionController extends Controller
 {
     public function index()
     {
-        $questions = Question::all();
-
-        return view('questions.index', compact('questions'));
+        $categories=Question::all();
+        return view('questions.index',['categories'=>$categories]);
     }
 
     public function create()
     {
-        return view('questions.create');
+        $categories = Category::all()->pluck('name', 'id');
+
+        return view('questions.create', compact('categories'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
+            'question_text' => 'required',
         ]);
         $question = Question::create([
-            'name' => $request->input('name'),
+            'question_text' => $request->input('question_text'),
         ]);
         $question->save();
         return view('/welcome')->with('message', 'Créer avec succès');
