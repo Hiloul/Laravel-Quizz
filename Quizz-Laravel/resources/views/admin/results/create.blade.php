@@ -1,6 +1,5 @@
-@extends('layouts.admin')
-
-@section('content')
+@extends('layouts.app')
+@section('principale')
 <div class="container-fluid">
 
     <!-- Page Heading -->

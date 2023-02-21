@@ -25,7 +25,7 @@ class ResultController extends Controller
         return view('admin.results.create', compact('questions'));
     }
 
-    public function store(ResultRequest $request): RedirectResponse
+    public function store(Request $request)
     {
         $result = Result::create($request->validated() + ['user_id' => auth()->id()]);
         $result->questions()->sync($request->input('questions', []));
@@ -41,23 +41,6 @@ class ResultController extends Controller
         return view('admin.results.show', compact('result'));
     }
 
-    public function edit(Result $result): View
-    {
-        $questions = Question::all()->pluck('question_text', 'id');
-
-        return view('admin.results.edit', compact('result', 'questions'));
-    }
-
-    public function update(ResultRequest $request, Result $result): RedirectResponse
-    {
-        $result->update($request->validated() + ['user_id' => auth()->id()]);
-        $result->questions()->sync($request->input('questions', []));
-
-        return redirect()->route('admin.results.index')->with([
-            'message' => 'successfully updated !',
-            'alert-type' => 'info'
-        ]);
-    }
 
     public function destroy(Result $result): RedirectResponse
     {
