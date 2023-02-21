@@ -52,16 +52,14 @@
                                 <td>
                                     <div class="btn-group btn-group-sm">
                                         <a href="{{ route('admin.results.show', $result->id) }}" class="btn btn-success">
-                                            <i class="fa fa-eye"></i>
+                                            Lire
                                         </a>
-                                        <a href="{{ route('admin.results.edit', $result->id) }}" class="btn btn-info">
-                                            <i class="fa fa-pencil-alt"></i>
-                                        </a>
-                                        <form onclick="return confirm('are you sure ? ')" class="d-inline" action="{{ route('admin.results.destroy', $result->id) }}" method="POST">
+                                       
+                                        <form onclick="return confirm('En êtes-vous sur(e) ?')" class="d-inline" action="{{ route('admin.results.destroy', $result->id) }}" method="POST">
                                             @csrf
                                             @method('delete')
                                             <button class="btn btn-danger" style="border-top-left-radius: 0;border-bottom-left-radius: 0;">
-                                                <i class="fa fa-trash"></i>
+                                                Supprimer
                                             </button>
                                         </form>
                                     </div>
