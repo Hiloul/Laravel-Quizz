@@ -3,7 +3,6 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use App\Models\Result;
 use App\Models\Question;
 
 return new class extends Migration
@@ -15,14 +14,11 @@ return new class extends Migration
      */
     public function up()
     {
-        //Seconde table pivot celle ci lie les resultats et les questions créées
-        Schema::create('question_result', function (Blueprint $table) {
+        Schema::create('options', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Result::class);
             $table->foreignIdFor(Question::class);
-            $table->foreignIdFor(Option::class);
-           
-            $table->integer('points')->default(0);
+            $table->longText('option_text');
+            $table->integer('points')->nullable();
             $table->timestamps();
         });
     }
@@ -34,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('question_result');
+        Schema::dropIfExists('options');
     }
 };

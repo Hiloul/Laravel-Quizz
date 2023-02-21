@@ -16,7 +16,6 @@ class Result extends Model
 
     public function questions()
     {
-        return $this->belongsToMany(Question::class)->withPivot([ 'points']);
+        return $this->belongsToMany(Question::class)->withPivot(['option_id', 'points']);
     }
 }
-// 'option_id'
