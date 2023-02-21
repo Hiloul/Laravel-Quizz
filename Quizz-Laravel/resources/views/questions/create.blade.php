@@ -32,7 +32,7 @@
                         <input type="text" class="form-control" id="question_text" placeholder="{{ __('question text') }}" name="question_text" value="{{ old('question_text') }}" />
                     </div>
                     <div class="form-group">
-                        <label for="category">{{ __('Category') }}</label>
+                        <label for="category">{{ __('Catégorie') }}</label>
                         <select class="form-control" name="category_id" id="category">
                             @foreach($categories as $id => $category)
                                 <option value="{{ $id }}">{{ $category }}</option>

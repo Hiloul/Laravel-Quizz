@@ -28,10 +28,10 @@ class QuestionController extends Controller
         $request->validate([
             'name' => 'required',
         ]);
-        $category = Category::create([
+        $question = Question::create([
             'name' => $request->input('name'),
         ]);
-        $category->save();
+        $question->save();
         return view('/welcome')->with('message', 'Créer avec succès');
     }
     // public function store(Request $request)
