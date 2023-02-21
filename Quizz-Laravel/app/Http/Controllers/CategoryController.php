@@ -37,36 +37,35 @@ class CategoryController extends Controller
         return view('admin.categories.show', [ 'categorie' => $categorie ]);
     }
     
+    public function edit(Category $category) {
+        return view("admin.categories.edit", compact("categories"));
+    }
+   
 
-    public function edit(Category $category)
+    public function update(Request $request, $id): RedirectResponse
     {
-        return view('admin.categories.edit', compact('category'));
+        $id->update($request->validated());
+
+        return redirect()->route('admin.categories.index')->with([
+            'message' => 'successfully updated !',
+            'alert-type' => 'info'
+        ]);
     }
 
-    // public function update(Request $request, $id): RedirectResponse
-    // {
-    //     $id->update($request->validated());
+    public function destroy(Category $category): RedirectResponse
+    {
+        $category->delete();
 
-    //     return redirect()->route('admin.categories.index')->with([
-    //         'message' => 'successfully updated !',
-    //         'alert-type' => 'info'
-    //     ]);
-    // }
+        return back()->with([
+            'message' => 'successfully deleted !',
+            'alert-type' => 'danger'
+        ]);
+    }
 
-    // public function destroy(Category $category): RedirectResponse
-    // {
-    //     $category->delete();
+    public function massDestroy()
+    {
+        Category::whereIn('id', request('ids'))->delete();
 
-    //     return back()->with([
-    //         'message' => 'successfully deleted !',
-    //         'alert-type' => 'danger'
-    //     ]);
-    // }
-
-    // public function massDestroy()
-    // {
-    //     Category::whereIn('id', request('ids'))->delete();
-
-    //     return response()->noContent();
-    // }
+        return response()->noContent();
+    }
 }

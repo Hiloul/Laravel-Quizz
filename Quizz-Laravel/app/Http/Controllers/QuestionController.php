@@ -41,12 +41,12 @@ class QuestionController extends Controller
     //     return view('questions.show', compact('question'));
     // }
 
-    // public function edit(Question $question): View
-    // {
-    //     $categories = Category::all()->pluck('name', 'id');
+    public function edit(Question $question): View
+    {
+        $categories = Category::all()->pluck('name', 'id');
 
-    //     return view('questions.edit', compact('question', 'categories'));
-    // }
+        return view('questions.edit', compact('question', 'categories'));
+    }
 
     // public function update(QuestionRequest $request, Question $question): RedirectResponse
     // {
@@ -58,20 +58,20 @@ class QuestionController extends Controller
     //     ]);
     // }
 
-    // public function destroy(Question $question): RedirectResponse
-    // {
-    //     $question->delete();
+    public function destroy(Question $question): RedirectResponse
+    {
+        $question->delete();
 
-    //     return back()->with([
-    //         'message' => 'successfully deleted !',
-    //         'alert-type' => 'danger'
-    //     ]);
-    // }
+        return back()->with([
+            'message' => 'successfully deleted !',
+            'alert-type' => 'danger'
+        ]);
+    }
 
-    // public function massDestroy()
-    // {
-    //     Question::whereIn('id', request('ids'))->delete();
+    public function massDestroy()
+    {
+        Question::whereIn('id', request('ids'))->delete();
 
-    //     return response()->noContent();
-    // }
+        return response()->noContent();
+    }
 }
