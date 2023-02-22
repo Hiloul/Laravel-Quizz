@@ -5,6 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use App\Models\Result;
 use App\Models\Question;
+use App\Models\Option;
 
 return new class extends Migration
 {
