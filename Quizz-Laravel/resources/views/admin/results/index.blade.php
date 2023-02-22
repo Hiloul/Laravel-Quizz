@@ -9,14 +9,14 @@
         <div class="card">
             <div class="card-header py-3 d-flex">
                 <h6 class="m-0 font-weight-bold text-primary">
-                    {{ __('result') }}
+                    {{ __('Resultats') }}
                 </h6>
                 <div class="ml-auto">
                     <a href="{{ route('admin.results.create') }}" class="btn btn-primary">
                         <span class="icon text-white-50">
                             <i class="fa fa-plus"></i>
                         </span>
-                        <span class="text">{{ __('New result') }}</span>
+                        <span class="text">{{ __('Nouveau résultats') }}</span>
                     </a>
                 </div>
             </div>
@@ -54,8 +54,8 @@
                                         <a href="{{ route('admin.results.show', $result->id) }}" class="btn btn-success">
                                             Lire
                                         </a>
-                                       
-                                        <form onclick="return confirm('En êtes-vous sur(e) ?')" class="d-inline" action="{{ route('admin.results.destroy', $result->id) }}" method="POST">
+                            
+                                        <form onclick="return confirm('En êtes-vous sur(e) ?')?true:false;" class="d-inline" action="{{ route('admin.results.destroy', $result->id) }}" method="POST">
                                             @csrf
                                             @method('delete')
                                             <button class="btn btn-danger" style="border-top-left-radius: 0;border-bottom-left-radius: 0;">
@@ -67,7 +67,7 @@
                             </tr>
                             @empty
                             <tr>
-                                <td colspan="7" class="text-center">{{ __('Data Empty') }}</td>
+                                <td colspan="7" class="text-center">{{ __('Aucunes données entrées') }}</td>
                             </tr>
                             @endforelse
                         </tbody>

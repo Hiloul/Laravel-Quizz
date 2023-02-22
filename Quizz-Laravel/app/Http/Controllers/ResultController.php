@@ -11,14 +11,14 @@ use Illuminate\Http\Request;
 
 class ResultController extends Controller
 {
-    public function index(): View
+    public function index()
     {
         $results = Result::all();
 
         return view('admin.results.index', compact('results'));
     }
 
-    public function create(): View
+    public function create()
     {
         $questions = Question::all()->pluck('question_text', 'id');
 
@@ -36,13 +36,13 @@ class ResultController extends Controller
         ]);
     }
 
-    public function show(Result $result): View
+    public function show(Result $result)
     {
         return view('admin.results.show', compact('result'));
     }
 
 
-    public function destroy(Result $result): RedirectResponse
+    public function destroy(Result $result)
     {
         $result->delete();
 
