@@ -3,10 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Result;
 use App\Models\Question;
-use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\RedirectResponse;
-use App\Http\Requests\Admin\ResultRequest;
 use Illuminate\Http\Request;
 
 class ResultController extends Controller
@@ -36,11 +33,17 @@ class ResultController extends Controller
         ]);
     }
 
-    public function show(Result $result)
-    {
-        return view('admin.results.show', compact('result'));
+    // public function show(Result $result)
+    // {
+    //     return view('admin.results.show', compact('result'));
+    // }
+    public function show($result_id){
+        $result = Result::whereHas('user', function ($query) {
+            $query->whereId(auth()->id());
+        })->findOrFail($result_id);
+    
+        return view('admin.answers.results', compact('result'));
     }
-
 
     public function destroy(Result $result)
     {

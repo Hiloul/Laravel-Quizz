@@ -4,21 +4,19 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\RedirectResponse;
-use App\Http\Requests\Admin\OptionRequest;
 use App\Models\Question;
 use App\Models\Option;
 
 class OptionController extends Controller
 {
-        public function index(): View
+        public function index()
     {
         $options = Option::all();
 
         return view('options.index', compact('options'));
     }
 
-    public function create(): View
+    public function create()
     {
         $questions = Question::all()->pluck('question_text', 'id');
 
