@@ -1,6 +1,13 @@
 @extends('layouts.app')
 
 @section('principale')
+<nav>
+<a href="/"><img src="../logoo.png" alt=""></a>
+<a href="/admin">Home'Admin</a>
+<a href="/getFullUsersAnswers">Toutes les réponses</a>
+<a href="/categories">Catégorie(s)</a>
+<a href="/questions">Questions</a>
+</nav>
 <div class="container-fluid">
 
     <!-- Page Heading -->
@@ -55,4 +62,25 @@
     align-items: center;
     flex-direction: column;
     height: 600px;}
+    nav {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    a:hover {
+        color: royalblue;
+    }
+
+    img {
+        width: 50px;
+        height: 50px;
+        margin-left: 10px;
+        margin-top: 10px;
+    }
+
+    h6 {
+        text-transform: uppercase;
+        text-align: center;
+    }
 </style>
