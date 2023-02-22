@@ -10,14 +10,14 @@
         <div class="card">
             <div class="card-header py-3 d-flex">
                 <h6 class="m-0 font-weight-bold text-primary">
-                    {{ __('question') }}
+                    {{ __('Question(s)') }}
                 </h6>
                 <div class="ml-auto">
                     <a href="{{ route('questions.create') }}" class="btn btn-primary">
                         <span class="icon text-white-50">
                             <i class="fa fa-plus"></i>
                         </span>
-                        <span class="text">{{ __('New question') }}</span>
+                        <span class="text">{{ __('Créer une nouvelle question') }}</span>
                     </a>
                 </div>
             </div>
@@ -29,9 +29,9 @@
                                 <th width="10">
 
                                 </th>
-                                <th>No</th>
-                                <th>Category</th>
-                                <th>Question Text</th>
+                                <th>Numéro</th>
+                                <th>Catégorie</th>
+                                <th>Question</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -47,13 +47,13 @@
                                 <td>
                                     <div class="btn-group btn-group-sm">
                                         <a href="{{ route('questions.edit', $question->id) }}" class="btn btn-info">
-                                            <i class="fa fa-pencil-alt"></i>
+                                            Modifier
                                         </a>
                                         <form onclick="return confirm('are you sure ? ')" class="d-inline" action="{{ route('questions.destroy', $question->id) }}" method="POST">
                                             @csrf
                                             @method('delete')
                                             <button class="btn btn-danger" style="border-top-left-radius: 0;border-bottom-left-radius: 0;">
-                                                <i class="fa fa-trash"></i>
+                                                Supprimer
                                             </button>
                                         </form>
                                     </div>
@@ -61,7 +61,7 @@
                             </tr>
                             @empty
                             <tr>
-                                <td colspan="7" class="text-center">{{ __('Data Empty') }}</td>
+                                <td colspan="7" class="text-center">{{ __('Aucunes données entrées') }}</td>
                             </tr>
                             @endforelse
                         </tbody>
@@ -71,6 +71,9 @@
         </div>
     <!-- Content Row -->
 
+</div>
+<div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
+    Laravel Quizz&copy; Hilel 2023
 </div>
 @endsection
 
@@ -114,3 +117,9 @@
 })
 </script>
 @endpush
+
+
+<style>
+    .card{text-align: center;}
+    .card-body{height: 600px;}
+</style>

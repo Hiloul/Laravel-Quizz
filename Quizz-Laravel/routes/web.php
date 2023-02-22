@@ -51,7 +51,6 @@ Route::middleware('auth:sanctum')->group(function () {
 Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.private.index');
     Route::get('/getFullUsersAnswers', [AdminController::class, 'getFullUsersAnswers'])->name('admin.private.getFullUsersAnswers');
-    Route::get('/getAnswersByEmail', [AdminController::class, 'getAnswersByEmail'])->name('admin.private.getAnswersByEmail');
     Route::get('/getAnswersByUser', [AdminController::class, 'getAnswersByUser'])->name('admin.private.getAnswersByUser');
     Route::get('/search', [AdminController::class, 'search'])->name('admin.private.search');
 //Route des catégories
