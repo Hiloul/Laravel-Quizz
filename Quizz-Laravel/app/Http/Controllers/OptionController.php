@@ -15,21 +15,21 @@ class OptionController extends Controller
     {
         $options = Option::all();
 
-        return view('admin.options.index', compact('options'));
+        return view('options.index', compact('options'));
     }
 
     public function create(): View
     {
         $questions = Question::all()->pluck('question_text', 'id');
 
-        return view('admin.options.create', compact('questions'));
+        return view('options.create', compact('questions'));
     }
 
     public function store(Request $request)
     {
         Option::create($request->validated());
 
-        return redirect()->route('admin.options.index')->with([
+        return redirect()->route('options.index')->with([
             'message' => 'successfully created !',
             'alert-type' => 'success'
         ]);
@@ -37,27 +37,27 @@ class OptionController extends Controller
 
     public function show(Option $option)
     {
-        return view('admin.options.show', compact('option'));
+        return view('options.show', compact('option'));
     }
 
     public function edit(Option $option)
     {
         $questions = Question::all()->pluck('question_text', 'id');
 
-        return view('admin.options.edit', compact('option', 'questions'));
+        return view('options.edit', compact('option', 'questions'));
     }
 
-    public function update(Request $request, Option $option): RedirectResponse
+    public function update(Request $request, Option $option)
     {
         $option->update($request->validated());
 
-        return redirect()->route('admin.options.index')->with([
+        return redirect()->route('options.index')->with([
             'message' => 'successfully updated !',
             'alert-type' => 'info'
         ]);
     }
 
-    public function destroy(Option $option): RedirectResponse
+    public function destroy(Option $option)
     {
         $option->delete();
 

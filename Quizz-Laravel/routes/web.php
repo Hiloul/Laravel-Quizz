@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QuizzController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\OptionController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\ResultController;
 use Illuminate\Foundation\Application;
@@ -47,7 +48,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-//Route Private admin
+//Route Private admin only
 Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.private.index');
     Route::get('/getFullUsersAnswers', [AdminController::class, 'getFullUsersAnswers'])->name('admin.private.getFullUsersAnswers');
@@ -66,8 +67,6 @@ Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
     Route::post('/results', [ResultController::class, 'store'])->name('admin.results.store');
     Route::get('/results/{id}', [ResultController::class, 'show'])->name('admin.results.show');
     Route::delete('/results/{id}', [ResultController::class, 'destroy'])->name('admin.results.destroy');
-    Route::delete('results', [ResultController::class, 'massDestroy'])->name('admin.results.mass_destroy');  
-
 });
 //Route des questions
     Route::get('/questions', [QuestionController::class, 'index'])->name('questions.index');  
@@ -76,6 +75,14 @@ Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
     Route::post('/questions/{question}/edit', [QuestionController::class, 'edit'])->name('questions.edit');
     Route::delete('/questions/{id}', [QuestionController::class, 'destroy'])->name('questions.destroy');
     Route::delete('questions_mass_destroy', [QuestionController::class, 'massDestroy'])->name('questions.mass_destroy'); 
+
+//Route des questions
+    Route::get('/options', [OptionController::class, 'index'])->name('options.index');  
+    Route::get('/options/create', [OptionController::class, 'create'])->name('options.create')->where('id', '[0-9]+');
+    Route::post('/options', [OptionController::class, 'store'])->name('options.store');
+    Route::post('/options/{option}/edit', [OptionController::class, 'edit'])->name('options.edit');
+    Route::delete('/options/{id}', [OptionController::class, 'destroy'])->name('options.destroy');
+    Route::delete('options_mass_destroy', [OptionController::class, 'massDestroy'])->name('options.mass_destroy'); 
 
 //Route de partage
 Route::get('/social-media-share', [SocialShareButtonsController::class,'ShareWidget']);
@@ -86,10 +93,6 @@ Route::get('/quizz/create', [QuizzController::class, 'create'])->name('quizz.cre
 Route::post('/quizz', [QuizzController::class, 'store'])->name('quizz.store');
 Route::get('/quizz/{id}', [QuizzController::class, 'show'])->name('quizz.show');
 Route::get('/delete/{id}', [QuizzController::class, 'destroy'])->name('quizz.destroy');
-
-    
-
-Route::get('/social-media-share', [SocialShareButtonsController::class,'ShareWidget']);
 
 
 require __DIR__ . '/auth.php';

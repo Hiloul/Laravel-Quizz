@@ -51,11 +51,4 @@ class ResultController extends Controller
             'alert-type' => 'danger'
         ]);
     }
-
-    public function massDestroy()
-    {
-        Result::whereIn('id', request('ids'))->delete();
-
-        return response()->noContent();
-    }
 }

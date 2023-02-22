@@ -1,6 +1,6 @@
-@extends('layouts.admin')
+@extends('layouts.app')
 
-@section('content')
+@section('principale')
 <div class="container-fluid">
 
     <!-- Page Heading -->
@@ -10,14 +10,11 @@
         <div class="card">
             <div class="card-header py-3 d-flex">
                 <h6 class="m-0 font-weight-bold text-primary">
-                    {{ __('option') }}
+                    {{ __('Options de réponses') }}
                 </h6>
                 <div class="ml-auto">
-                    <a href="{{ route('admin.options.create') }}" class="btn btn-primary">
-                        <span class="icon text-white-50">
-                            <i class="fa fa-plus"></i>
-                        </span>
-                        <span class="text">{{ __('New option') }}</span>
+                    <a href="{{ route('options.create') }}" class="btn btn-primary">
+                        <span class="text">{{ __('Créer une nouvelle option') }}</span>
                     </a>
                 </div>
             </div>
@@ -29,9 +26,9 @@
                                 <th width="10">
 
                                 </th>
-                                <th>No</th>
+                                <th>Numero</th>
                                 <th>Question</th>
-                                <th>option Text</th>
+                                <th>Option de réponse</th>
                                 <th>Point</th>
                                 <th>Action</th>
                             </tr>
@@ -48,14 +45,14 @@
                                 <td>{{ $option->points}}</td>
                                 <td>
                                     <div class="btn-group btn-group-sm">
-                                        <a href="{{ route('admin.options.edit', $option->id) }}" class="btn btn-info">
-                                            <i class="fa fa-pencil-alt"></i>
+                                        <a href="{{ route('options.edit', $option->id) }}" class="btn btn-info">
+                                            Modifier
                                         </a>
-                                        <form onclick="return confirm('are you sure ? ')" class="d-inline" action="{{ route('admin.options.destroy', $option->id) }}" method="POST">
+                                        <form onclick="return confirm('Vous êtes sur(e) ? ')" class="d-inline" action="{{ route('options.destroy', $option->id) }}" method="POST">
                                             @csrf
                                             @method('delete')
                                             <button class="btn btn-danger" style="border-top-left-radius: 0;border-bottom-left-radius: 0;">
-                                                <i class="fa fa-trash"></i>
+                                                Supprimer
                                             </button>
                                         </form>
                                     </div>
@@ -74,6 +71,9 @@
     <!-- Content Row -->
 
 </div>
+<div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
+    Laravel Quizz&copy; Hilel 2023
+</div>
 @endsection
 
 @push('script-alt')
@@ -83,7 +83,7 @@
   let deleteButtonTrans = 'delete selected'
   let deleteButton = {
     text: deleteButtonTrans,
-    url: "{{ route('admin.options.mass_destroy') }}",
+    url: "{{ route('options.mass_destroy') }}",
     className: 'btn-danger',
     action: function (e, dt, node, config) {
       var ids = $.map(dt.rows({ selected: true }).nodes(), function (entry) {
