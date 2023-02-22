@@ -17,7 +17,7 @@
                     <span class="icon text-white-50">
                         <i class="fa fa-plus"></i>
                     </span>
-                    <span class="text">{{ __('Nouvelle catégorie') }}</span>
+                    <span class="text">{{ __('Créer une nouvelle catégorie') }}</span>
                 </a>
             </div>
         </div>
@@ -29,8 +29,8 @@
                             <th width="10">
 
                             </th>
-                            <th>No</th>
-                            <th>Name</th>
+                            <th>Numero</th>
+                            <th>Nom</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -59,7 +59,7 @@
                         </tr>
                         @empty
                         <tr>
-                            <td colspan="7" class="text-center">{{ __('Data Empty') }}</td>
+                            <td colspan="7" class="text-center">{{ __('Aucunes données entrées') }}</td>
                         </tr>
                         @endforelse
                     </tbody>
@@ -69,6 +69,9 @@
     </div>
     <!-- Content Row -->
 
+</div>
+<div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
+    Laravel Quizz&copy; Hilel 2023
 </div>
 @endsection
 
@@ -126,3 +129,8 @@
     })
 </script>
 @endpush
+
+<style>
+    .card{text-align: center;}
+    .card-body{height: 600px;}
+</style>
