@@ -76,7 +76,6 @@ Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
     Route::post('/questions', [QuestionController::class, 'store'])->name('questions.store');
     Route::post('/questions/{question}/edit', [QuestionController::class, 'edit'])->name('questions.edit');
     Route::delete('/questions/{id}', [QuestionController::class, 'destroy'])->name('questions.destroy');
-    Route::delete('questions_mass_destroy', [QuestionController::class, 'massDestroy'])->name('questions.mass_destroy'); 
 
 //Route des options
     Route::get('/options', [OptionController::class, 'index'])->name('options.index');  

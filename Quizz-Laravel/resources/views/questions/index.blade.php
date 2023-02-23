@@ -83,47 +83,6 @@
 </div>
 @endsection
 
-@push('script-alt')
-<script>
-    $(function () {
-  let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
-  let deleteButtonTrans = 'delete selected'
-  let deleteButton = {
-    text: deleteButtonTrans,
-    url: "{{ route('questions.mass_destroy') }}",
-    className: 'btn-danger',
-    action: function (e, dt, node, config) {
-      var ids = $.map(dt.rows({ selected: true }).nodes(), function (entry) {
-          return $(entry).data('entry-id')
-      });
-      if (ids.length === 0) {
-        alert('zero selected')
-        return
-      }
-      if (confirm('are you sure ?')) {
-        $.ajax({
-          headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-          method: 'POST',
-          url: config.url,
-          data: { ids: ids, _method: 'DELETE' }})
-          .done(function () { location.reload() })
-      }
-    }
-  }
-  dtButtons.push(deleteButton)
-  $.extend(true, $.fn.dataTable.defaults, {
-    order: [[ 1, 'asc' ]],
-    pageLength: 50,
-  });
-  $('.datatable-question:not(.ajaxTable)').DataTable({ buttons: dtButtons })
-    $('a[data-toggle="tab"]').on('shown.bs.tab', function(e){
-        $($.fn.dataTable.tables(true)).DataTable()
-            .columns.adjust();
-    });
-})
-</script>
-@endpush
-
 
 <style>
     .card{text-align: center;}

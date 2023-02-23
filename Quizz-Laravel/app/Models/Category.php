@@ -16,8 +16,6 @@ class Category extends Model
     ];
 
 
-    // protected $guarded = ['id', 'created_at', 'updated_at'];
-
     public function categoryQuestions()
     {
         return $this->hasMany(Question::class);

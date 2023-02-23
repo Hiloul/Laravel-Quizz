@@ -67,10 +67,5 @@ class QuestionController extends Controller
         ]);
     }
 
-    public function massDestroy()
-    {
-        Question::whereIn('id', request('ids'))->delete();
-
-        return response()->noContent();
-    }
+   
 }
