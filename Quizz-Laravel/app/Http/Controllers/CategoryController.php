@@ -37,9 +37,9 @@ class CategoryController extends Controller
     }
    
 
-    public function update(Request $request, $id): RedirectResponse
+    public function update($id)
     {
-        $id->update($request->validated());
+        $id->update();
 
         return redirect()->route('admin.categories.index')->with([
             'message' => 'successfully updated !',

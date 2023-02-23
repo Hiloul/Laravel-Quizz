@@ -35,11 +35,6 @@ class QuestionController extends Controller
         return view('/welcome')->with('message', 'Créer avec succès');
     }
    
-    // public function show(Question $question): View
-    // {
-    //     return view('questions.show', compact('question'));
-    // }
-
     public function edit(Question $question): View
     {
         $categories = Category::all()->pluck('name', 'id');
@@ -47,17 +42,17 @@ class QuestionController extends Controller
         return view('questions.edit', compact('question', 'categories'));
     }
 
-    // public function update(QuestionRequest $request, Question $question): RedirectResponse
-    // {
-    //     $question->update($request->validated());
+    public function update(Question $question)
+    {
+        $question->update();
 
-    //     return redirect()->route('questions.index')->with([
-    //         'message' => 'successfully updated !',
-    //         'alert-type' => 'info'
-    //     ]);
-    // }
+        return redirect()->route('questions.index')->with([
+            'message' => 'successfully updated !',
+            'alert-type' => 'info'
+        ]);
+    }
 
-    public function destroy(Question $question): RedirectResponse
+    public function destroy(Question $question)
     {
         $question->delete();
 
