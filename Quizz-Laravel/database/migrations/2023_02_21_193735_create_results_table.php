@@ -17,7 +17,6 @@ return new class extends Migration
         Schema::create('results', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(User::class);
-            $table->integer('total_points')->nullable();
             $table->timestamps();
         });
     }
