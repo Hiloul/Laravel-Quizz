@@ -83,10 +83,10 @@ Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
     Route::get('/options', [OptionController::class, 'index'])->name('options.index');  
     Route::get('/options/create', [OptionController::class, 'create'])->name('options.create')->where('id', '[0-9]+');
     Route::post('/options', [OptionController::class, 'store'])->name('options.store');
-    Route::post('/options/{option}/edit', [OptionController::class, 'edit'])->name('options.edit');
+    Route::get('/options/{option}/edit', [OptionController::class, 'edit'])->name('options.edit');
+    Route::put('/options/{option}', [OptionController::class, 'update'])->name('options.update');
     Route::delete('/options/{id}', [OptionController::class, 'destroy'])->name('options.destroy');
-    Route::delete('options_mass_destroy', [OptionController::class, 'massDestroy'])->name('options.mass_destroy'); 
-
+   
 //Route Reponses au quizz
     Route::get('/quizz', [QuizzController::class, 'index'])->name('quizz.index');
     Route::get('/quizz/create', [QuizzController::class, 'create'])->name('quizz.create')->where('id', '[0-9]+');

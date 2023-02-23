@@ -23,7 +23,7 @@ return new class extends Migration
             $table->foreignIdFor(Question::class);
             $table->foreignIdFor(Option::class);
            
-            $table->integer('points')->default(0);
+    
             $table->timestamps();
         });
     }

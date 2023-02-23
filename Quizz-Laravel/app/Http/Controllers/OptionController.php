@@ -45,9 +45,9 @@ class OptionController extends Controller
         return view('options.edit', compact('option', 'questions'));
     }
 
-    public function update(Request $request, Option $option)
+    public function update(Option $option)
     {
-        $option->update($request->validated());
+        $option->update();
 
         return redirect()->route('options.index')->with([
             'message' => 'successfully updated !',

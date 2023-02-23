@@ -18,7 +18,6 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(Question::class);
             $table->longText('option_text');
-            $table->integer('points')->nullable();
             $table->timestamps();
         });
     }
