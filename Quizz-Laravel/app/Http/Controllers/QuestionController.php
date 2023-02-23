@@ -35,7 +35,7 @@ class QuestionController extends Controller
         return view('/welcome')->with('message', 'Créer avec succès');
     }
    
-    public function edit(Question $question): View
+    public function edit(Question $question)
     {
         $categories = Category::all()->pluck('name', 'id');
 
