@@ -55,10 +55,4 @@ class CategoryController extends Controller
         return redirect(route('admin.categories.index'));
     }
 
-    public function massDestroy()
-    {
-        Category::whereIn('id', request('ids'))->delete();
-
-        return response()->noContent();
-    }
 }
