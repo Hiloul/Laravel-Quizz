@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Schema;
 use App\Models\Result;
 use App\Models\Question;
 use App\Models\Option;
+use App\Models\User;
 
 return new class extends Migration
 {
@@ -19,6 +20,7 @@ return new class extends Migration
         //Seconde table pivot celle ci lie les resultats et les questions créées
         Schema::create('question_result', function (Blueprint $table) {
             $table->id();
+            $table->foreignIdFor(User::class);
             $table->foreignIdFor(Result::class);
             $table->foreignIdFor(Question::class);
             $table->foreignIdFor(Option::class);

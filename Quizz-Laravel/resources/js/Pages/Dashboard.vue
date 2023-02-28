@@ -37,6 +37,7 @@ justify-content: space-evenly;
 align-self: flex-start;}
 a:hover{
     color: royalblue;
+   
 }
 .py-12{height: 550px;}
 </style>
