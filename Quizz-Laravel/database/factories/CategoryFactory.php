@@ -2,14 +2,14 @@
 
 namespace Database\Factories;
 
-use App\Models\Question;
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Question>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Category>
  */
-class QuestionFactory extends Factory
+class CategoryFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,13 +17,12 @@ class QuestionFactory extends Factory
      * @return array<string, mixed>
      */
 
-     protected $model = Question::class;
+     protected $model = Category::class;
 
     public function definition()
     {
         return [
-            'question_text' => Str::random(50),
-            'category_id' => rand(1,6),
+            'name' => Str::random(15),
         ];
     }
 }
