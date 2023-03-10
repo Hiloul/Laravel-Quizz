@@ -2,12 +2,14 @@
 
 namespace Database\Factories;
 
+use App\Models\Question;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Role>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Question>
  */
-class RoleFactory extends Factory
+class QuestionFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -15,7 +17,7 @@ class RoleFactory extends Factory
      * @return array<string, mixed>
      */
 
-     protected $model = Role::class;
+     protected $model = Question::class;
 
     public function definition()
     {
