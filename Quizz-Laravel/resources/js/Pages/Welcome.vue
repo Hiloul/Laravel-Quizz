@@ -212,7 +212,7 @@ defineProps({
                     </div>
                     <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-l">
                     <div class="ml-4 text-lg leading-7 font-semibold">
-                            4. Prochainement: Créez vos questionnaires
+                            4. Nouveau: Créez vos questions !
                     </div>
                         <div class="flex items-center">
                             Lorem ipsum dolor sit amet consectetur adipisicing
