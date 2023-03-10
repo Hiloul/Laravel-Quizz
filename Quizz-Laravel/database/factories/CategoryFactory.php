@@ -22,7 +22,7 @@ class CategoryFactory extends Factory
     public function definition()
     {
         return [
-            'name' => Str::random(15),
+            'name' => fake()->word(),
         ];
     }
 }

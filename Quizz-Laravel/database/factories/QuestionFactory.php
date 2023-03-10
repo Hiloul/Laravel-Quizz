@@ -22,7 +22,7 @@ class QuestionFactory extends Factory
     public function definition()
     {
         return [
-            'question_text' => Str::random(50),
+            'question_text' => fake()->sentence(),
             'category_id' => rand(1,6),
         ];
     }

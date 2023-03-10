@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Answer;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
+use PharIo\Manifest\Email;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Answer>
@@ -24,13 +25,15 @@ class AnswerFactory extends Factory
     public function definition()
     {
         return [
-            'email' => rand(1,10),
-            'user_id'=>rand(1,10),
-            'answer1' => Str::random(10),
-            'answer2' => Str::random(10),
+        
+            'answer1' => fake()->word(),
+            'answer2' => fake()->word(),
             'answer3' => fake()->city(),
             'answer4' => rand(1,5),
-            'answer5' => Str::random(50),
+            'answer5' => fake()->text(200),
+            // 'email_verified_at' => now(),
+            'email' => User::all(),
+            'user_id'=> User::all(),
         ];
     }
 }

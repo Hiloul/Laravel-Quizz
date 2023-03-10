@@ -25,7 +25,7 @@ class OptionFactory extends Factory
     {
         return [
             'question_id' => rand(1,6),
-            'option_text' => Str::random(50),
+            'option_text' => fake()->text(60),
         ];
     }
 }
