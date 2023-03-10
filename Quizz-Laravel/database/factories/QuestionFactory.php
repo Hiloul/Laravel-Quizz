@@ -22,7 +22,7 @@ class QuestionFactory extends Factory
     public function definition()
     {
         return [
-            'role_id' => $this->faker->integer(rand(1,2),true)
+            'question_text' => Str::random(15),
         ];
     }
 }
