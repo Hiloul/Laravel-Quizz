@@ -11,9 +11,10 @@ import { Head } from '@inertiajs/vue3';
             <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
                 <nav>
                     <a href="/">Home</a>
-                    <a href="/questions">Créer un questionnaire</a>
-                    <a href="/quizz/create">Répondre à un questionnaire</a>
-                    <a href="/quizz">Mes questionnaires</a>
+                    <a href="/questions">Créer</a>
+                    <a href="/options">Répondre</a>
+                    <a href="/quizz/create">Questionnaire</a>
+                    <a href="/quizz">Mon contenu</a>
                     <a href="/admin">Admin</a>
                 </nav>
             </h2>
