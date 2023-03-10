@@ -172,7 +172,7 @@ defineProps({
             <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
             <a href="/"><img src="" alt=""></a>
                 <h2 class="h-16 w-auto text-gray-700 sm:h-20">
-                   Laravel Quizz</h2>
+                   Quizz-Laravel </h2>
             </div>
 
             <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
