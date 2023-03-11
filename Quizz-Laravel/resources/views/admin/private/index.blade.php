@@ -4,10 +4,9 @@
 <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
 <nav>
 <a href="/"><img src="../logoo.png" alt=""></a>
-<a href="/admin">Home'Admin</a>
-<a href="/getFullUsersAnswers">Toutes les réponses</a>
+<a href="/getFullUsersAnswers">Réponse(s)</a>
 <a href="/categories">Catégorie(s)</a>
-<a href="/questions">Questions</a>
+<a href="/questions">Question(s)</a>
 </nav>
 </h2>
 <h2>Utilisateurs inscrit(e)s sur le site</h2>

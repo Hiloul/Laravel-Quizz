@@ -47,7 +47,7 @@ class QuizzController extends Controller
             'email' => 'required',
         ]);
         
-        $personnage = Answer::create([
+        $answer = Answer::create([
             'id' => $request->input('user'),
             'answer1' => $request->input('answer1'),
             'answer2' => $request->input('answer2'),
@@ -58,7 +58,7 @@ class QuizzController extends Controller
             'user_id'=>Auth::user()->id,
         ]);
         // $id = Auth::id();
-        $personnage->save();
+        $answer->save();
       
         return view('/welcome')->with('message', 'Créer avec succès');
     }

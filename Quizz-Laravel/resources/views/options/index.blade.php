@@ -88,4 +88,5 @@
     a:hover{color: royalblue;}
     img{height: 50px;
     width: 50px;}
+    table{text-align: center;}
 </style>

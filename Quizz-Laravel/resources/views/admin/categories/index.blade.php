@@ -5,7 +5,6 @@
     <a href="/"><img src="../logoo.png" alt=""></a>
     <a href="/admin">Home'Admin</a>
     <a href="/getFullUsersAnswers">Toutes les réponses</a>
-    <a href="/categories">Catégorie(s)</a>
     <a href="/questions">Questions</a>
 </nav>
 <div class="container-fluid">
@@ -113,4 +112,8 @@
         text-transform: uppercase;
         text-align: center;
     }
+    table{text-align: center;}
+    .card-body{height: 600px;
+    overflow: scroll;
+    overscroll-behavior: smooth;}
 </style>

@@ -5,12 +5,11 @@
 <nav>
 <a href="/"><img src="../logoo.png" alt=""></a>
 <a href="/admin">Home'Admin</a>
-<a href="/getFullUsersAnswers">Toutes les réponses</a>
 <a href="/categories">Catégorie(s)</a>
 <a href="/questions">Questions</a>
 </nav>
 </h2>
-<h2>Toutes les réponses au questionnaires de tous les utilisateurs</h2>
+<h2>Réponses au questionnaire principale</h2>
 <ul>
     @foreach($answers as $answer)
     <li id="titleUl">Réponses des utilisateurs</li>
