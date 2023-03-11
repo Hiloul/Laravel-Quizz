@@ -49,6 +49,8 @@ import { Head } from '@inertiajs/vue3';
 nav{display: flex;
 justify-content: space-evenly;
 align-self: flex-start;}
+a{display: flex;
+justify-content: center;}
 a:hover{
     color: royalblue;
    
