@@ -31,9 +31,8 @@ class AnswerFactory extends Factory
             'answer3' => fake()->city(),
             'answer4' => rand(1,5),
             'answer5' => fake()->text(200),
-            // 'email_verified_at' => now(),
-            'email' => User::all(),
-            'user_id'=> User::all(),
+            'email' => rand(1,1),
+            'user_id'=> rand(1,1),
         ];
     }
 }
