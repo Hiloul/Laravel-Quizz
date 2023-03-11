@@ -20,5 +20,5 @@ class EnsureUserHasRole
         if($request->user()->roles()->where('name',$role)->exists()) return $next($request);
         //interdiction en cas de role != admin
         abort(403);
-    }
+    } 
 }
