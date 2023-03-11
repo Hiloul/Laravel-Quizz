@@ -6,7 +6,6 @@ use App\Http\Controllers\QuizzController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\OptionController;
 use App\Http\Controllers\QuestionController;
-use App\Http\Controllers\ResultController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SocialShareButtonsController;
@@ -48,30 +47,24 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-//Route Private admin only
+//Route Private (admin only)
 Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.private.index');
     Route::get('/getFullUsersAnswers', [AdminController::class, 'getFullUsersAnswers'])->name('admin.private.getFullUsersAnswers');
     Route::get('/getAnswersByUser', [AdminController::class, 'getAnswersByUser'])->name('admin.private.getAnswersByUser');
     Route::get('/search', [AdminController::class, 'search'])->name('admin.private.search');
-//Route des catégories
+//Route de gestion des catégories
     Route::get('/categories', [CategoryController::class, 'index'])->name('admin.categories.index');  
     Route::get('/categories/create', [CategoryController::class, 'create'])->name('admin.categories.create')->where('id', '[0-9]+');
     Route::post('/categories', [CategoryController::class, 'store'])->name('admin.categories.store');
     Route::get('/categories/{category}/edit', [CategoryController::class, 'edit'])->name('admin.categories.edit');
     Route::put('/categories/{category}', [CategoryController::class, 'update'])->name('admin.categories.update');
     Route::delete('/categories/{id}', [CategoryController::class, 'destroy'])->name('admin.categories.destroy'); 
-//Route des résultats
-    Route::get('/results', [ResultController::class, 'index'])->name('admin.results.index');  
-    Route::get('/results/create', [ResultController::class, 'create'])->name('admin.results.create')->where('id', '[0-9]+');
-    Route::post('/results', [ResultController::class, 'store'])->name('admin.results.store');
-    Route::get('/results/{id}', [ResultController::class, 'show'])->name('admin.results.show');
-    Route::delete('/results/{id}', [ResultController::class, 'destroy'])->name('admin.results.destroy');
 });
 
 //Partie création de questionnaires
 
-//Route des questions
+//Route de gestion des questions
     Route::get('/questions', [QuestionController::class, 'index'])->name('questions.index');  
     Route::get('/questions/create', [QuestionController::class, 'create'])->name('questions.create')->where('id', '[0-9]+');
     Route::post('/questions', [QuestionController::class, 'store'])->name('questions.store');
@@ -79,7 +72,7 @@ Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
     Route::put('/questions/{question}', [QuestionController::class, 'update'])->name('questions.update');
     Route::delete('/questions/{id}', [QuestionController::class, 'destroy'])->name('questions.destroy');
 
-//Route des options
+//Route d'option -> gestion de réponses
     Route::get('/options', [OptionController::class, 'index'])->name('options.index');  
     Route::get('/options/create', [OptionController::class, 'create'])->name('options.create')->where('id', '[0-9]+');
     Route::post('/options', [OptionController::class, 'store'])->name('options.store');
@@ -87,7 +80,7 @@ Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
     Route::put('/options/{option}', [OptionController::class, 'update'])->name('options.update');
     Route::delete('/options/{id}', [OptionController::class, 'destroy'])->name('options.destroy');
    
-//Route Reponses au quizz
+//Route Reponses au quizz principale
     Route::get('/quizz', [QuizzController::class, 'index'])->name('quizz.index');
     Route::get('/quizz/create', [QuizzController::class, 'create'])->name('quizz.create')->where('id', '[0-9]+');
     Route::post('/quizz', [QuizzController::class, 'store'])->name('quizz.store');
