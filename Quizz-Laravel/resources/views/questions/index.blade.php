@@ -3,9 +3,8 @@
 @section('principale')
 <nav>
 <a href="/"><img src="../logoo.png" alt=""></a>
-<a href="/welcome">Home</a>
+<a href="/">Home</a>
 <a href="/options">Répondre</a>
-<a href="/questions">Questions</a>
 </nav>
 <div class="container-fluid">
     <div class="card">

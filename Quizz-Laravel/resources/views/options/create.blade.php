@@ -1,6 +1,12 @@
 @extends('layouts.app')
 
 @section('principale')
+<nav>
+<a href="/"><img src="../logoo.png" alt=""></a>
+<a href="/">Home</a>
+<a href="/options">Réponses</a>
+<a href="/questions">Questions</a>
+</nav>
 <div class="container-fluid">
 
     <!-- Page Heading -->
@@ -36,10 +42,10 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="option_text">{{ __('Option de réponse') }}</label>
-                        <input type="text" class="form-control" id="option_text" placeholder="{{ __('option text') }}" name="option_text" value="{{ old('option_text') }}" />
+                        <label for="option_text">{{ __('Réponse') }}</label>
+                        <input type="text" class="form-control" id="option_text" placeholder="{{ __('votre réponse') }}" name="option_text" value="{{ old('option_text') }}" />
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">{{ __('Sauvegarder') }}</button>
+                    <button type="submit" class="btn btn-primary btn-block">{{ __('Valider') }}</button>
                 </form>
             </div>
         </div>
@@ -48,3 +54,15 @@
     Laravel Quizz&copy; Hilel 2023
 </div>
 @endsection
+<style>
+    .card{text-align: center;}
+    .card-body{height: 600px;
+    overflow: scroll;
+    overscroll-behavior: smooth;}
+    nav{display: flex;
+    justify-content: space-evenly;
+    align-items: center;}
+    a:hover{color: royalblue;}
+    img{height: 50px;
+    width: 50px;}
+</style>

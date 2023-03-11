@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('principale')
+<nav>
+<a href="/"><img src="../logoo.png" alt=""></a>
+<a href="/">Home</a>
+<a href="/questions">Questions</a>
+</nav>
 <div class="container-fluid">
 
     <!-- Page Heading -->
@@ -10,11 +15,11 @@
         <div class="card">
             <div class="card-header py-3 d-flex">
                 <h6 class="m-0 font-weight-bold text-primary">
-                    {{ __('Options de réponses') }}
+                    {{ __('Réponse(s)') }}
                 </h6>
                 <div class="ml-auto">
                     <a href="{{ route('options.create') }}" class="btn btn-primary">
-                        <span class="text">{{ __('Créer une nouvelle réponse') }}</span>
+                       + <span class="text">{{ __('Répondre à des questions') }}</span>
                     </a>
                 </div>
             </div>
@@ -28,7 +33,7 @@
                                 </th>
                                 <th>Numero</th>
                                 <th>Question</th>
-                                <th>Option de réponse</th>
+                                <th>Réponse</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -71,3 +76,16 @@
     Laravel Quizz&copy; Hilel 2023
 </div>
 @endsection
+
+<style>
+    .card{text-align: center;}
+    .card-body{height: 600px;
+    overflow: scroll;
+    overscroll-behavior: smooth;}
+    nav{display: flex;
+    justify-content: space-evenly;
+    align-items: center;}
+    a:hover{color: royalblue;}
+    img{height: 50px;
+    width: 50px;}
+</style>
