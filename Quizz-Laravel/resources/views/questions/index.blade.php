@@ -73,5 +73,13 @@
 
 <style>
     .card{text-align: center;}
-    .card-body{height: 600px;}
+    .card-body{height: 600px;
+    overflow: scroll;
+    overscroll-behavior: smooth;}
+    nav{display: flex;
+    justify-content: space-evenly;
+    align-items: center;}
+    a:hover{color: royalblue;}
+    img{height: 50px;
+    width: 50px;}
 </style>
