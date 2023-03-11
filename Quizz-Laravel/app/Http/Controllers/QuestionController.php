@@ -32,7 +32,7 @@ class QuestionController extends Controller
             'question_text' => $request->input('question_text'),
         ]);
         $question->save();
-        return view('/welcome')->with('message', 'Créer avec succès');
+        return view('/')->with('message', 'Créer avec succès');
     }
    
     public function edit(Question $question)

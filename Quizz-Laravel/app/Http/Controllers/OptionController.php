@@ -25,12 +25,14 @@ class OptionController extends Controller
 
     public function store(Request $request)
     {
-        Option::create($request->validated());
-
-        return redirect()->route('options.index')->with([
-            'message' => 'successfully created !',
-            'alert-type' => 'success'
+        $request->validate([
+            'option_text' => 'required',
         ]);
+        $option = Option::create([
+            'option_text' => $request->input('option_text'),
+        ]);
+        $option->save();
+        return view('/')->with('message', 'Créer avec succès');
     }
 
     public function show(Option $option)
