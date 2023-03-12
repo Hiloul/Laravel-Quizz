@@ -11,7 +11,15 @@
     <li>{{$answer->answer3}}</li>
     <li>{{$answer->answer4}}</li>
     <li>{{$answer->answer5}}</li>
+    <form onclick="return confirm('Vous êtes sur(e) ? ')" class="d-inline" action="{{ route('quizz.destroy', $answer->id) }}" method="POST">
+    @csrf
+    @method('delete')
+    <button class="btn btn-danger" style="border-top-left-radius: 0;border-bottom-left-radius: 0;">
+    Supprimer
+    </button>
+    </form>
     <div id="lastUl"></div>
+    
     @endforeach
     <h3> Votre email: {{ $answer->email}}</h3>
 </ul>
@@ -27,7 +35,10 @@
 
 </div>
 @endif
-
+            <div class="container mt-4">
+            <h2 class="mb-5 text-center">Partagez l'application à vos amis !</h2>
+            <button></button>
+        </div>
 
 <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
     Laravel Quizz&copy; Hilel 2023
@@ -46,6 +57,7 @@ align-items: center;
 justify-content: center;
 flex-direction: column;
 }
+button:hover{color: royalblue;}
 #titleUl{
     font-weight: 600;
     margin-bottom: 5px;

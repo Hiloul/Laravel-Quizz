@@ -86,7 +86,7 @@ Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
     Route::get('/quizz/create', [QuizzController::class, 'create'])->name('quizz.create')->where('id', '[0-9]+');
     Route::post('/quizz', [QuizzController::class, 'store'])->name('quizz.store');
     Route::get('/quizz/{id}', [QuizzController::class, 'show'])->name('quizz.show');
-    Route::get('/delete/{id}', [QuizzController::class, 'destroy'])->name('quizz.destroy');
+    Route::delete('/quizz/{id}', [QuizzController::class, 'destroy'])->name('quizz.destroy');
 
 //Route de partage
     Route::get('/social-media-share', [SocialShareButtonsController::class,'ShareWidget']);

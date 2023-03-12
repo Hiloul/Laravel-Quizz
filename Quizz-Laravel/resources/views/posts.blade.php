@@ -19,7 +19,7 @@
     background-color: #ccc;}
     </style>
         <div class="container mt-4">
-            <h2 class="mb-5 text-center">Partagez vos réponses à vos amis !</h2>
+            <h2 class="mb-5 text-center">Partagez l'application à vos amis !</h2>
             {!! $shareComponent !!}
         </div>
 @endsection
