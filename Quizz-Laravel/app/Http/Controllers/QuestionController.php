@@ -30,6 +30,7 @@ class QuestionController extends Controller
         ]);
         $question = Question::create([
             'question_text' => $request->input('question_text'),
+            'category_id' => $request->input('category_id'),
         ]);
         $question->save();
         return view('/welcome')->with('message', 'Créer avec succès');

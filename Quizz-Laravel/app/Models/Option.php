@@ -15,6 +15,7 @@ class Option extends Model
         'question_id',
     ];
 
+    //Option appartient à Question (correspond aux réponses)
     public function question(){
         return $this->belongsTo(Question::class);
     }

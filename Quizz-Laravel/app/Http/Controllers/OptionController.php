@@ -30,9 +30,10 @@ class OptionController extends Controller
         ]);
         $option = Option::create([
             'option_text' => $request->input('option_text'),
+            'question_id' => $request->input('question_id'),
         ]);
         $option->save();
-        return view('/')->with('message', 'Créer avec succès');
+        return view('/welcome')->with('message', 'Créer avec succès');
     }
 
     public function show(Option $option)

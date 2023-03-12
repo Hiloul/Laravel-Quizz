@@ -11,13 +11,12 @@ class Category extends Model
     protected $fillable =[
         'id',
         'name',
-        'created_at',
-        'updated_at' 
     ];
 
 
     public function categoryQuestions()
     {
-        return $this->hasMany(Question::class);
+        return $this->hasMany(Question::class,'category_id','id');
+        
     }
 }
