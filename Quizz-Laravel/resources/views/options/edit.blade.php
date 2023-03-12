@@ -25,7 +25,7 @@
             <div class="card-body">
                 <form action="{{ route('options.update', $option->id) }}" method="POST">
                     @csrf
-                    @method('put')
+                    @method('PATCH')
                     <div class="form-group">
                         <label for="question">{{ __('Question') }}</label>
                         <select class="form-control" name="question_id" id="question">
@@ -35,11 +35,14 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="option_text">{{ __('Ma réponse réponse') }}</label>
+                        <label for="option_text">{{ __('Ma réponse') }}</label>
                         <input type="text" class="form-control" id="option_text" placeholder="{{ __('option text') }}" name="option_text" value="{{ old('option_text', $option->option_text) }}" />
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">{{ __('Sauvegarder')}}</button>
+                    <button type="submit" class="btn btn-primary btn-block">{{ __('Modifier')}}</button>
                 </form>
+
+
+
             </div>
         </div>
 </div>

@@ -41,22 +41,26 @@ class OptionController extends Controller
         return view('options.show', compact('option'));
     }
 
-    public function edit(Option $option)
-    {
-        $questions = Question::all()->pluck('question_text', 'id');
+    public function edit($id)
 
-        return view('options.edit', compact('option', 'questions'));
-    }
+{
+    $question = Question::findOrFail($id);
 
-    public function update(Option $option)
-    {
-        $option->update();
+    return view('options.edit', compact('option'));
+}
 
-        return redirect()->route('options.index')->with([
-            'message' => 'successfully updated !',
-            'alert-type' => 'info'
-        ]);
-    }
+public function update(Request $request, $id)
+{
+    $validatedData = $request->validate([
+        'option_text' => 'required|max:255',
+        'question_id' => 'required'
+    ]);
+
+    Option::whereId($id)->update($validatedData);
+
+    return redirect('/welcome')->with('success', 'Mis à jour avec succèss');
+}
+
 
     public function destroy($id)
     {
