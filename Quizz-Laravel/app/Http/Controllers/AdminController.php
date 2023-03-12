@@ -31,12 +31,19 @@ class AdminController extends Controller
         
         return view('admin.private.getAnswersByEmail',['answers'=>$answers]);
     }
-      public function search()
+      public function search(Request $request)
     {
         $search_text= $_GET['query'];
         $answers = Answer::where('email','LIKE',`%`.$search_text.`%`)->get();
-        return view('admin.private.search',compact('answers'));
+        // return view('admin.private.search',compact('answers'));
+        return response()->json($search_text);
     }
+    public function autocompleteSearch(Request $request)
+    {
+          $query = $request->get('query');
+          $filterResult = User::where('name', 'LIKE', '%'. $query. '%')->get();
+          return response()->json($filterResult);
+    } 
     
     public function getAnswer($id)
     {
