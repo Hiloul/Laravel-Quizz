@@ -65,7 +65,9 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $quizz=Answer::findOrFail($id);
+        $quizz->delete();
+        return redirect('/getFullUsersAnswers')->with('success', 'Supprimé avec succèss');
     }
 
 }

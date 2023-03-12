@@ -53,6 +53,7 @@ Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
     Route::get('/getFullUsersAnswers', [AdminController::class, 'getFullUsersAnswers'])->name('admin.private.getFullUsersAnswers');
     Route::get('/getAnswersByUser', [AdminController::class, 'getAnswersByUser'])->name('admin.private.getAnswersByUser');
     Route::get('/search', [AdminController::class, 'search'])->name('admin.private.search');
+    Route::delete('/getFullUsersAnswers/{id}', [AdminController::class, 'destroy'])->name('admin.private.destroy'); 
 //Route de gestion des catégories
     Route::get('/categories', [CategoryController::class, 'index'])->name('admin.categories.index');  
     Route::get('/categories/create', [CategoryController::class, 'create'])->name('admin.categories.create')->where('id', '[0-9]+');
@@ -62,7 +63,7 @@ Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
     Route::delete('/categories/{id}', [CategoryController::class, 'destroy'])->name('admin.categories.destroy'); 
 });
 
-//Partie création de questionnaires
+//Partie création de questions
 
 //Route de gestion des questions
     Route::get('/questions', [QuestionController::class, 'index'])->name('questions.index');  

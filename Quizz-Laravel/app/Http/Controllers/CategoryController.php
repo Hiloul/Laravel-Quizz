@@ -47,12 +47,12 @@ class CategoryController extends Controller
         ]);
     }
 
-   
-    public function destroy(Category $category)
+    public function destroy($id)
     {
+        $category = Category::findOrFail($id);
         $category->delete();
-
-        return redirect(route('admin.categories.index'));
+        
+        return redirect('/categories')->with('success', 'Supprimé avec succèss');
     }
 
 }

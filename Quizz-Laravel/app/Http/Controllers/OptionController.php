@@ -57,20 +57,11 @@ class OptionController extends Controller
         ]);
     }
 
-    public function destroy(Option $option)
+    public function destroy($id)
     {
+        $option = Option::findOrFail($id);
         $option->delete();
-
-        return back()->with([
-            'message' => 'successfully deleted !',
-            'alert-type' => 'danger'
-        ]);
+        return redirect('/options')->with('success', 'Supprimé avec succèss');
     }
 
-    public function massDestroy()
-    {
-        Option::whereIn('id', request('ids'))->delete();
-
-        return response()->noContent();
-    }
 }

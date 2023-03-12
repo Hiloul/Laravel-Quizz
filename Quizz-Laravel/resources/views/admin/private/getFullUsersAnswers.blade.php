@@ -19,6 +19,13 @@
     <li>{{$answer->answer4}}</li>
     <li>{{$answer->answer5}}</li>
     <li>{{$answer->email}}</li>
+    <form onclick="return confirm('Vous êtes sur(e) ? ')" class="d-inline" action="{{ route('admin.private.destroy', $answer->id) }}" method="POST">
+    @csrf
+    @method('delete')
+    <button class="btn btn-danger" style="border-top-left-radius: 0;border-bottom-left-radius: 0;">
+    Supprimer
+    </button>
+    </form>
     <div id="lastUl"></div>
     @endforeach
 </ul>
@@ -48,6 +55,7 @@
     a:hover{
     color: royalblue;
 }
+button:hover{color: royalblue;}
     nav{display: flex;
 justify-content: space-evenly;
 align-items: center;}
