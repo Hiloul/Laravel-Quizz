@@ -65,16 +65,8 @@ margin-top: 10px;}
 
         <!-- Question 4 -->
         <label for="answer4">Question 4: Quelle couleur préférez vous ?</label>
-        <select name="answer4" id="answer4">
-
-        <option>--Choisissez votre réponse--</option>
-        <option value="un">Bleu</option>
-        <option value="deux">Jaune</option>
-        <option value="trois">Rouge</option>
-        <option value="quatre">Vert</option>
-        <option value="cinq">orange</option>
-        </select>
-
+        <input type="text" name="answer4" id="answer4" placeholder="Ecris un mot..." />
+       
         <!-- Question 5 -->
         <label for="answer5">Qu'avez vous pensé de ce test ?</label>
         <textarea name="answer5" id="answer5" placeholder="Ecris quelque chose..." ></textarea>
