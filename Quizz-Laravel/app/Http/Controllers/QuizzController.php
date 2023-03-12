@@ -86,21 +86,21 @@ class QuizzController extends Controller
     return view('quizz.index')->with('message', 'Supprimé avec succès');
     }
 
-    public function ShareWidget()
-    {
-        $shareComponent = \Share::page(
-            'https://www.positronx.io/create-autocomplete-search-in-laravel-with-typeahead-js/',
-            'Vôtre texte ici',
-        )
-        ->facebook()
-        ->twitter()
-        ->linkedin()
-        ->telegram()
-        ->whatsapp()        
-        ->reddit();
+    // public function ShareWidget()
+    // {
+    //     $shareComponent = \Share::page(
+    //         'https://www.positronx.io/create-autocomplete-search-in-laravel-with-typeahead-js/',
+    //         'Vôtre texte ici',
+    //     )
+    //     ->facebook()
+    //     ->twitter()
+    //     ->linkedin()
+    //     ->telegram()
+    //     ->whatsapp()        
+    //     ->reddit();
         
-        return view('quizz.index', compact('shareComponent'));
-    }
+    //     return view('quizz.index', compact('shareComponent'));
+    // }
 
 
     public function Quizzindex()

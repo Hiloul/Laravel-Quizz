@@ -9,7 +9,11 @@ class Option extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['id', 'created_at', 'updated_at'];
+    protected $fillable =[
+        'id',
+        'option_text',
+        'question_id',
+    ];
 
     public function question(){
         return $this->belongsTo(Question::class);
