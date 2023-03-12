@@ -32,20 +32,26 @@ class CategoryController extends Controller
     }
 
     
-    public function edit(Category $category) {
-        return view("admin.categories.edit", compact("categories"));
-    }
    
+    public function edit($id)
+{
+    $category = Category::findOrFail($id);
 
-    public function update($id)
-    {
-        $id->update();
+    return view("admin.categories.edit", compact("category"));
+}
 
-        return redirect()->route('admin.categories.index')->with([
-            'message' => 'successfully updated !',
-            'alert-type' => 'info'
-        ]);
-    }
+public function update(Request $request, $id)
+{
+    $validatedData = $request->validate([
+        'name' => 'required|max:255',
+    ]);
+
+    Category::whereId($id)->update($validatedData);
+
+    return redirect('/categories')->with('success', 'Mis à jour avec succèss');
+}
+
+    
 
     public function destroy($id)
     {

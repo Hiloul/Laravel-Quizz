@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <form action="{{ route('admin.categories.update', $category->id) }}" method="PATCH">
+                <form action="{{ route('admin.categories.update', $category->id) }}" method="PUT">
                     @csrf
                     @method('put')
                     <div class="form-group">
@@ -34,12 +34,19 @@
                 </form>
             </div>
         </div>
-    
-
     <!-- Content Row -->
-
 </div>
 <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
     Laravel Quizz&copy; Hilel 2023
 </div>
 @endsection
+
+
+<style>
+    button:hover, a:hover{color: royalblue;}
+    .container-fluid{text-align: center;}
+    .card-body{display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 550px;}
+</style>
