@@ -33,22 +33,48 @@ class CategoryController extends Controller
 
     
    
-    public function edit($id)
+    public function edit(Category $category)
 {
-    $category = Category::findOrFail($id);
+    // $category = Category::findOrFail($category);
 
     return view("admin.categories.edit", compact("category"));
 }
 
-public function update(Request $request, $id)
-{
-    $validatedData = $request->validate([
-        'name' => 'required|max:255',
+// public function update(Request $request, Category $category)
+// {
+//     $validatedData = $request->validate([
+//         'name' => 'required|max:255',
+//     ]);
+
+//     Category::whereId($category)->update($validatedData);
+
+//     return redirect('/categories')->with('success', 'Mis à jour avec succèss');
+// }
+public function update(Request $request, Category $category) {
+    // 1. La validation
+    $rules = [
+        'name' => 'bail|required|string|max:255',
+        
+    ];
+    // Si nouvelle catégo 
+    if ($request->has("category")) {
+        // On ajoute la règle de validation"
+        $rules["category"] = 'bail|required|max:255';
+    }
+    $this->validate($request, $rules);
+    // 2. On upload la categorie
+    if ($request->has("category")) {
+        //On supprime l'ancienne catégorie
+        
+        $chemin_cat = $request->picture->store("categories");
+    }
+    // 3. On met à jour la categorie
+    $category->update([
+        "name" => $request->name,
+        "name" => isset($chemin_cat) ? $chemin_cat : $category->picture,
     ]);
-
-    Category::whereId($id)->update($validatedData);
-
-    return redirect('/categories')->with('success', 'Mis à jour avec succèss');
+    // 4. On affiche la cetegorie
+    return redirect(route("admin.categories.index", $category));
 }
 
     

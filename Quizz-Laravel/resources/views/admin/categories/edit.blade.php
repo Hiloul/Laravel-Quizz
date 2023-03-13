@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <form action="{{ route('admin.categories.update', $category->id) }}" method="PUT">
+                <form action="{{ route('admin.categories.update', $category) }}" method="POST">
                     @csrf
                     @method('put')
                     <div class="form-group">
