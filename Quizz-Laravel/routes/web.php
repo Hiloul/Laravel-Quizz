@@ -22,11 +22,11 @@ use Inertia\Inertia;
 |
 */
 //Le welcome et dashboard sont des vue vuejs et le reste vue blade
-Route::get('/', function () {
+    Route::get('/', function () {
     return view('welcome');
 });
 //Route login/s'inscrire
-Route::get('/', function () {
+    Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
@@ -36,24 +36,25 @@ Route::get('/', function () {
 });
 
 //Dashboard
-Route::get('/dashboard', function () {
+    Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
-})->middleware(['auth:sanctum', 'verified'])->name('dashboard');
+    })->middleware(['auth:sanctum', 'verified'])->name('dashboard');
 
 //Route Profil
-Route::middleware('auth:sanctum')->group(function () {
+    Route::middleware('auth:sanctum')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+    });
 
 //Route Private (admin only)
-Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
+    Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.private.index');
     Route::get('/getFullUsersAnswers', [AdminController::class, 'getFullUsersAnswers'])->name('admin.private.getFullUsersAnswers');
     Route::get('/getAnswersByUser', [AdminController::class, 'getAnswersByUser'])->name('admin.private.getAnswersByUser');
     Route::get('/search', [AdminController::class, 'search'])->name('admin.private.search');
     Route::delete('/getFullUsersAnswers/{id}', [AdminController::class, 'destroy'])->name('admin.private.destroy'); 
+
 //Route de gestion des catégories
     Route::get('/categories', [CategoryController::class, 'index'])->name('admin.categories.index');  
     Route::get('/categories/create', [CategoryController::class, 'create'])->name('admin.categories.create')->where('id', '[0-9]+');
@@ -63,8 +64,6 @@ Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
     Route::delete('/categories/{id}', [CategoryController::class, 'destroy'])->name('admin.categories.destroy'); 
 });
 
-//Partie création de questions
-
 //Route de gestion des questions
     Route::get('/questions', [QuestionController::class, 'index'])->name('questions.index');  
     Route::get('/questions/create', [QuestionController::class, 'create'])->name('questions.create')->where('id', '[0-9]+');
@@ -73,7 +72,7 @@ Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
     Route::put('/questions/{question}', [QuestionController::class, 'update'])->name('questions.update');
     Route::delete('/questions/{id}', [QuestionController::class, 'destroy'])->name('questions.destroy');
 
-//Route d'option -> gestion de réponses
+//Route des options -> gestion de réponses
     Route::get('/options', [OptionController::class, 'index'])->name('options.index');  
     Route::get('/options/create', [OptionController::class, 'create'])->name('options.create')->where('id', '[0-9]+');
     Route::post('/options', [OptionController::class, 'store'])->name('options.store');
