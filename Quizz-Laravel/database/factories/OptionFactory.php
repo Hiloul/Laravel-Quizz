@@ -23,7 +23,7 @@ class OptionFactory extends Factory
     public function definition()
     {
         return [
-            'question_id' => rand(1,10),
+            'question_id' => Question::all()->random()->id,
             'option_text' => fake()->text(60),
         ];
     }

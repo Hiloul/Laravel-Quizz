@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Category;
 use App\Models\Question;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
@@ -22,7 +23,7 @@ class QuestionFactory extends Factory
     public function definition()
     {
         return [
-            'category_id' => rand(1,10),
+            'category_id' => Category::all()->random()->id,
             'question_text' => fake()->sentence(),
         ];
     }
