@@ -10,7 +10,7 @@ class SocialShareButtonsController extends Controller
     public function ShareWidget()
     {
         $shareComponent = \Share::page(
-            'https://www.positronx.io/create-autocomplete-search-in-laravel-with-typeahead-js/',
+            'https://laravel.com/docs/10.x/readme',
             'Vôtre texte ici',
         )
         ->facebook()

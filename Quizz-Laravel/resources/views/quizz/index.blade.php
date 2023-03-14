@@ -37,11 +37,11 @@
 @endif
             <div class="container mt-4">
             <h2 class="mb-5 text-center">Partagez l'application à vos amis !</h2>
-            <button></button>
+            <a id="click" href="/social-media-share">Cliquez ici !</a>
         </div>
 
 <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
-    Laravel Quizz&copy; Hilel 2023
+    Quizz-Laravel &copy; Hilel 2023
 </div>
 @endsection
 
@@ -57,7 +57,13 @@ align-items: center;
 justify-content: center;
 flex-direction: column;
 }
-button:hover{color: royalblue;}
+#click{
+display: flex;
+align-items: center;
+justify-content: center;
+}
+#click:hover{color: royalblue;
+font-size: x-large;}
 #titleUl{
     font-weight: 600;
     margin-bottom: 5px;
