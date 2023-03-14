@@ -20,6 +20,11 @@ return new class extends Migration
             $table->longText('option_text');
             $table->timestamps();
         });
+ //Cle etrangeres
+ Schema::table('options', function(Blueprint $table) {
+    $table->foreign('question_id')->references('id')->on('questions');  
+});
+
     }
 
     /**
