@@ -19,12 +19,11 @@ class OptionFactory extends Factory
      */
 
      protected $model = Option::class;
-     protected $model1 = Question::class;
 
     public function definition()
     {
         return [
-            'question_id' => rand(1,6),
+            'question_id' => rand(1,10),
             'option_text' => fake()->text(60),
         ];
     }

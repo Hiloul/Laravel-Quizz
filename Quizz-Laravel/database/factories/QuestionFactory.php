@@ -22,8 +22,8 @@ class QuestionFactory extends Factory
     public function definition()
     {
         return [
+            'category_id' => rand(1,10),
             'question_text' => fake()->sentence(),
-            'category_id' => rand(1,6),
         ];
     }
 }
