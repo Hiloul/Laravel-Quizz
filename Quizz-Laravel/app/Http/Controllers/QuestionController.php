@@ -36,23 +36,6 @@ class QuestionController extends Controller
         return view('/welcome')->with('message', 'Créer avec succès');
     }
    
-    public function edit(Question $question)
-    {
-        $categories = Category::all()->pluck('name', 'id');
-
-        return view('questions.edit', compact('question', 'categories'));
-    }
-
-    public function update(Question $question)
-    {
-        $question->update();
-
-        return redirect()->route('questions.index')->with([
-            'message' => 'successfully updated !',
-            'alert-type' => 'info'
-        ]);
-    }
-
     public function destroy($id)
     {
         $question = Question::findOrFail($id);

@@ -43,8 +43,7 @@
 <td>{{ $question->question_text }}</td>
 <td>
     <div class="btn-group btn-group-sm">
-        <a href="{{ route('questions.edit', $question->id) }}" class="btn btn-info"> Modifier </a>
-        <form onclick="return confirm('Etes vous sure ? ')" class="d-inline" action="{{ route('questions.destroy', $question->id) }}" method="POST">
+        <form onclick="return confirm('Etes vous sure ? ')" class="d-inline" action="{{ route('questions.destroy', $question) }}" method="POST">
         @csrf
         @method('delete')
         <button class="btn btn-danger" style="border-top-left-radius: 0;border-bottom-left-radius: 0;"> Supprimer </button>

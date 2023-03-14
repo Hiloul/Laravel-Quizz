@@ -68,8 +68,6 @@ use Inertia\Inertia;
     Route::get('/questions', [QuestionController::class, 'index'])->name('questions.index');  
     Route::get('/questions/create', [QuestionController::class, 'create'])->name('questions.create')->where('id', '[0-9]+');
     Route::post('/questions', [QuestionController::class, 'store'])->name('questions.store');
-    Route::get('/questions/{question}/edit', [QuestionController::class, 'edit'])->name('questions.edit');
-    Route::put('/questions/{question}', [QuestionController::class, 'update'])->name('questions.update');
     Route::delete('/questions/{id}', [QuestionController::class, 'destroy'])->name('questions.destroy');
 
 //Route des options -> gestion de réponses
