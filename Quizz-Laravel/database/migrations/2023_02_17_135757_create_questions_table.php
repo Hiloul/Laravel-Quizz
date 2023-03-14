@@ -16,11 +16,13 @@ return new class extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Category::class);
+            // $table->integer('category_id');
+            // $table->foreignIdFor(Category::class);
+            $table->unsignedBigInteger('category_id');
             $table->longText('question_text');
             $table->timestamps();
         });
-
+       
     }
 
     /**

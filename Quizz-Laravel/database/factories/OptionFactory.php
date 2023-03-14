@@ -20,10 +20,11 @@ class OptionFactory extends Factory
 
      protected $model = Option::class;
 
+
     public function definition()
     {
         return [
-            'question_id' => Question::all()->random()->id,
+            'question_id' => rand(1,10),
             'option_text' => fake()->text(60),
         ];
     }
